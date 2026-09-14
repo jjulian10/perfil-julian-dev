@@ -1,8 +1,14 @@
 {
+  "name": "perfil-julian-dev",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "start": "servor --reload"
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "dependencies": {
-    "servor": "^4.0.2"
+  "devDependencies": {
+    "vite": "^8.3.0"
   }
 }
