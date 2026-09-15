@@ -2,1386 +2,342 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="theme-color"
+    content="#08090b"
+  />
+
   <meta
     name="description"
-    content="Portfólio de Julian Matheus — desenvolvimento front-end, interfaces, sites e sistemas web em Porto Velho, RO."
+    content="Portfólio de Julian Matheus — desenvolvedor front-end, interfaces, sistemas web e experiências digitais."
   />
-  <meta name="theme-color" content="#08080a" />
 
-  <title>Julian Matheus — Desenvolvimento Web</title>
-
-  <style>
-    :root {
-      color-scheme: dark;
-
-      --bg: #08080a;
-      --surface: #111114;
-
-      --text: #f4f6f1;
-      --muted: #9898a1;
-
-      --line: rgba(255, 255, 255, 0.14);
-
-      --acid: #a8ffc6;
-      --violet: #8057ff;
-
-      --page: min(1440px, calc(100vw - 48px));
-
-      font-family:
-        Inter,
-        ui-sans-serif,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-      background: var(--bg);
-      color: var(--text);
-
-      font-synthesis: none;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-
-      min-width: 320px;
-      min-height: 100vh;
-
-      overflow-x: hidden;
-
-      background:
-        radial-gradient(
-          circle at 70% 0%,
-          rgba(128, 87, 255, 0.1),
-          transparent 30rem
-        ),
-        var(--bg);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    a {
-      cursor: pointer;
-    }
-
-    ::selection {
-      background: var(--acid);
-      color: #050506;
-    }
-
-    .intro {
-      position: fixed;
-      inset: 0;
-
-      z-index: 100;
-
-      display: grid;
-      place-items: center;
-
-      background: #070708;
-
-      transition:
-        opacity 0.7s ease,
-        visibility 0.7s ease;
-    }
-
-    .intro.hide {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .intro__inner {
-      width: min(680px, calc(100vw - 48px));
-
-      text-align: center;
-    }
-
-    .intro__mark {
-      font-size: clamp(2.4rem, 7vw, 6rem);
-      font-weight: 800;
-
-      letter-spacing: -0.06em;
-    }
-
-    .intro__bar {
-      height: 1px;
-
-      margin: 28px 0 14px;
-
-      overflow: hidden;
-
-      background: rgba(255, 255, 255, 0.16);
-    }
-
-    .intro__bar::after {
-      content: "";
-
-      display: block;
-
-      width: 100%;
-      height: 100%;
-
-      background: var(--acid);
-
-      transform-origin: left;
-
-      animation: load 1.45s cubic-bezier(0.7, 0, 0.2, 1) both;
-    }
-
-    .intro__meta {
-      display: flex;
-      justify-content: space-between;
-
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-
-      color: var(--muted);
-    }
-
-    .site-nav {
-      position: fixed;
-      top: 0;
-      left: 50%;
-
-      z-index: 40;
-
-      width: var(--page);
-
-      transform: translateX(-50%);
-
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-
-      gap: 24px;
-
-      padding: 22px 0;
-
-      mix-blend-mode: difference;
-
-      color: white;
-    }
-
-    .brand {
-      font-size: 0.82rem;
-      font-weight: 800;
-
-      letter-spacing: 0.08em;
-    }
-
-    .nav-links {
-      display: flex;
-
-      gap: 26px;
-    }
-
-    .nav-links a {
-      font-size: 0.72rem;
-
-      color: rgba(255, 255, 255, 0.76);
-    }
-
-    .nav-cta {
-      justify-self: end;
-
-      padding: 10px 16px;
-
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 999px;
-
-      font-size: 0.72rem;
-    }
-
-    .hero {
-      position: relative;
-
-      min-height: 100svh;
-
-      overflow: hidden;
-
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      pointer-events: none;
-
-      opacity: 0.4;
-
-      background:
-        linear-gradient(
-          to right,
-          transparent 49.95%,
-          rgba(255, 255, 255, 0.05) 50%,
-          transparent 50.05%
-        ),
-        linear-gradient(
-          to bottom,
-          transparent 49.95%,
-          rgba(255, 255, 255, 0.04) 50%,
-          transparent 50.05%
-        );
-    }
-
-    .hero__glow {
-      position: absolute;
-
-      width: min(46vw, 720px);
-      aspect-ratio: 1;
-
-      right: 6vw;
-      top: 8vh;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(125, 70, 255, 0.28),
-          rgba(106, 255, 184, 0.1) 44%,
-          transparent 72%
-        );
-
-      filter: blur(32px);
-
-      animation: breathe 5s ease-in-out infinite alternate;
-    }
-
-    #scene {
-      position: absolute;
-
-      z-index: 2;
-
-      top: 0;
-      right: 0;
-
-      width: 66vw;
-      height: 100%;
-
-      display: block;
-
-      pointer-events: auto;
-
-      mask-image:
-        radial-gradient(
-          circle at center,
-          black 46%,
-          transparent 80%
-        );
-    }
-
-    .hero__content {
-      position: relative;
-
-      z-index: 4;
-
-      width: var(--page);
-      min-height: 100svh;
-
-      margin: 0 auto;
-
-      padding: 140px 0 76px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      max-width: 400px;
-
-      font-size: 0.7rem;
-
-      letter-spacing: 0.2em;
-
-      color: var(--acid);
-    }
-
-    h1 {
-      margin: auto 0 0;
-
-      max-width: 1180px;
-
-      font-size: clamp(4rem, 9.7vw, 10rem);
-      line-height: 0.78;
-
-      letter-spacing: -0.075em;
-
-      font-weight: 660;
-    }
-
-    h1 span,
-    h1 em {
-      display: block;
-    }
-
-    h1 span {
-      padding-left: 11vw;
-
-      color: transparent;
-
-      -webkit-text-stroke:
-        1px rgba(255, 255, 255, 0.82);
-    }
-
-    h1 em {
-      padding-left: 3vw;
-
-      margin-top: 0.14em;
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size: 0.6em;
-      line-height: 0.95;
-
-      letter-spacing: -0.05em;
-
-      font-weight: 400;
-      font-style: italic;
-
-      color: var(--acid);
-    }
-
-    .hero__bottom {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-
-      gap: 28px;
-
-      padding-top: 50px;
-
-      pointer-events: auto;
-    }
-
-    .hero__bottom p {
-      max-width: 520px;
-
-      margin: 0;
-
-      font-size: clamp(1rem, 1.5vw, 1.35rem);
-      line-height: 1.55;
-
-      color: #b7b7bf;
-    }
-
-    .round-link {
-      width: 92px;
-
-      aspect-ratio: 1;
-
-      border:
-        1px solid rgba(255, 255, 255, 0.28);
-
-      border-radius: 50%;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      gap: 4px;
-
-      font-size: 0.72rem;
-
-      background:
-        rgba(12, 12, 14, 0.36);
-
-      backdrop-filter: blur(10px);
-
-      transition: 0.25s ease;
-    }
-
-    .round-link:hover {
-      transform:
-        rotate(-8deg)
-        scale(1.05);
-
-      border-color: var(--acid);
-
-      background:
-        rgba(168, 255, 198, 0.08);
-    }
-
-    .status {
-      position: absolute;
-
-      z-index: 5;
-
-      right:
-        max(
-          24px,
-          calc((100vw - var(--page)) / 2)
-        );
-
-      bottom: 22px;
-
-      display: flex;
-      align-items: center;
-
-      gap: 14px;
-
-      font-size: 0.66rem;
-      letter-spacing: 0.06em;
-
-      color:
-        rgba(255, 255, 255, 0.56);
-    }
-
-    .dot {
-      width: 7px;
-
-      aspect-ratio: 1;
-
-      border-radius: 50%;
-
-      background: var(--acid);
-
-      box-shadow:
-        0 0 16px var(--acid);
-    }
-
-    .section {
-      width: var(--page);
-
-      margin: 0 auto;
-
-      padding: 150px 0;
-    }
-
-    .section-head {
-      display: grid;
-
-      grid-template-columns:
-        minmax(110px, 0.6fr)
-        minmax(0, 2fr);
-
-      gap:
-        clamp(
-          30px,
-          7vw,
-          130px
-        );
-
-      align-items: start;
-
-      padding-bottom: 70px;
-
-      border-bottom:
-        1px solid var(--line);
-    }
-
-    .section-head > span {
-      padding-top: 12px;
-
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-
-      color: var(--muted);
-    }
-
-    .section-head h2 {
-      max-width: 940px;
-
-      margin: 0;
-
-      font-size:
-        clamp(
-          2.7rem,
-          5.8vw,
-          6.8rem
-        );
-
-      line-height: 0.98;
-
-      letter-spacing: -0.055em;
-
-      font-weight: 540;
-    }
-
-    .about-grid {
-      display: grid;
-
-      grid-template-columns:
-        0.78fr
-        1.22fr;
-
-      gap:
-        clamp(
-          50px,
-          8vw,
-          140px
-        );
-
-      padding-top: 74px;
-    }
-
-    .about-index {
-      display: flex;
-      flex-direction: column;
-
-      gap: 14px;
-
-      color: var(--muted);
-
-      font-size: 0.78rem;
-    }
-
-    .about-copy p {
-      max-width: 780px;
-
-      margin:
-        0
-        0
-        24px;
-
-      font-size:
-        clamp(
-          1.4rem,
-          2.5vw,
-          2.75rem
-        );
-
-      line-height: 1.2;
-
-      letter-spacing: -0.03em;
-
-      color: #d8d8dc;
-    }
-
-    .about-copy p:nth-child(2) {
-      color: #8f8f98;
-    }
-
-    .about-copy a {
-      display: inline-block;
-
-      margin-top: 24px;
-
-      padding-bottom: 6px;
-
-      border-bottom:
-        1px solid var(--acid);
-
-      color: var(--acid);
-
-      font-size: 0.84rem;
-    }
-
-    .work-grid {
-      display: grid;
-
-      gap: 26px;
-
-      padding-top: 70px;
-    }
-
-    .project {
-      --rx: 0deg;
-      --ry: 0deg;
-
-      --mx: 50%;
-      --my: 50%;
-
-      position: relative;
-
-      display: grid;
-
-      grid-template-columns:
-        minmax(0, 1.22fr)
-        minmax(280px, 0.78fr);
-
-      grid-template-rows:
-        auto
-        auto
-        1fr
-        auto;
-
-      min-height: 560px;
-
-      padding:
-        clamp(
-          24px,
-          3vw,
-          42px
-        );
-
-      overflow: hidden;
-
-      border: 1px solid var(--line);
-
-      border-radius: 24px;
-
-      background:
-        radial-gradient(
-          circle at var(--mx) var(--my),
-          rgba(168, 255, 198, 0.08),
-          transparent 24rem
-        ),
-        linear-gradient(
-          145deg,
-          #131318,
-          #0d0d10
-        );
-
-      transform:
-        perspective(1400px)
-        rotateX(var(--rx))
-        rotateY(var(--ry));
-
-      transform-style: preserve-3d;
-
-      transition:
-        transform 0.14s ease-out,
-        border-color 0.24s ease;
-    }
-
-    .project:hover {
-      border-color:
-        rgba(
-          168,
-          255,
-          198,
-          0.42
-        );
-    }
-
-    .project-visual {
-      position: relative;
-
-      grid-column: 1;
-      grid-row: 1 / 5;
-
-      min-height: 470px;
-
-      margin-right:
-        clamp(
-          20px,
-          4vw,
-          60px
-        );
-
-      overflow: hidden;
-
-      border-radius: 18px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(133, 80, 255, 0.86),
-          rgba(9, 9, 11, 0.35) 50%,
-          rgba(154, 255, 193, 0.74)
-        ),
-        #121217;
-
-      transform: translateZ(42px);
-    }
-
-    .project-visual::before,
-    .project-visual::after {
-      content: "";
-
-      position: absolute;
-
-      border:
-        1px solid rgba(255, 255, 255, 0.45);
-
-      border-radius: 50%;
-    }
-
-    .project-visual::before {
-      width: 55%;
-
-      aspect-ratio: 1;
-
-      right: -7%;
-      top: -13%;
-    }
-
-    .project-visual::after {
-      width: 37%;
-
-      aspect-ratio: 1;
-
-      left: 12%;
-      bottom: 7%;
-
-      border-color:
-        rgba(255, 255, 255, 0.2);
-    }
-
-    .orb {
-      position: absolute;
-
-      width: 44%;
-
-      aspect-ratio: 1;
-
-      left: 37%;
-      top: 30%;
-
-      border-radius:
-        40%
-        60%
-        55%
-        45%;
-
-      background:
-        radial-gradient(
-          circle at 30% 28%,
-          #f7fff9,
-          #9affc1 14%,
-          #6e41ff 42%,
-          #191923 70%
-        );
-
-      box-shadow:
-        0 0 70px
-        rgba(155, 255, 198, 0.42),
-        inset -16px -24px 35px
-        rgba(0, 0, 0, 0.38);
-
-      animation:
-        blob
-        8s
-        ease-in-out
-        infinite;
-    }
-
-    .project-num {
-      position: absolute;
-
-      left: 24px;
-      bottom: 18px;
-
-      font-size: 5.8rem;
-      line-height: 1;
-
-      letter-spacing: -0.08em;
-
-      color:
-        rgba(255, 255, 255, 0.62);
-    }
-
-    .project-meta {
-      grid-column: 2;
-
-      display: flex;
-      justify-content: space-between;
-
-      gap: 20px;
-
-      color: var(--muted);
-
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-    }
-
-    .project h3 {
-      grid-column: 2;
-
-      margin:
-        62px
-        0
-        0;
-
-      font-size:
-        clamp(
-          2.2rem,
-          4vw,
-          4.8rem
-        );
-
-      line-height: 0.95;
-
-      letter-spacing: -0.055em;
-
-      font-weight: 560;
-    }
-
-    .project p {
-      grid-column: 2;
-
-      align-self: end;
-
-      max-width: 530px;
-
-      margin: 30px 0;
-
-      color: #aaaab2;
-
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .project-footer {
-      grid-column: 2;
-
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-
-      gap: 24px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-
-      gap: 8px;
-    }
-
-    .tags span {
-      padding: 7px 10px;
-
-      border: 1px solid var(--line);
-
-      border-radius: 999px;
-
-      color: #aaaab2;
-
-      font-size: 0.65rem;
-    }
-
-    .project-footer a {
-      padding-bottom: 4px;
-
-      border-bottom:
-        1px solid var(--acid);
-
-      color: var(--acid);
-
-      font-size: 0.76rem;
-    }
-
-    .services {
-      padding-top: 32px;
-    }
-
-    .service-row {
-      display: grid;
-
-      grid-template-columns:
-        80px
-        minmax(220px, 1.1fr)
-        minmax(280px, 1fr)
-        40px;
-
-      gap: 30px;
-
-      align-items: center;
-
-      min-height: 150px;
-
-      border-bottom:
-        1px solid var(--line);
-
-      transition: 0.22s ease;
-    }
-
-    .service-row > span:first-child {
-      font-size: 0.7rem;
-
-      color: var(--muted);
-    }
-
-    .service-row h3 {
-      margin: 0;
-
-      font-size:
-        clamp(
-          1.6rem,
-          3vw,
-          3rem
-        );
-
-      font-weight: 500;
-
-      letter-spacing: -0.04em;
-    }
-
-    .service-row p {
-      max-width: 520px;
-
-      margin: 0;
-
-      color: #94949d;
-
-      line-height: 1.6;
-    }
-
-    .arrow {
-      text-align: right;
-
-      font-size: 1.4rem;
-
-      color: var(--acid);
-    }
-
-    .service-row:hover {
-      padding-inline: 22px;
-
-      background:
-        rgba(255, 255, 255, 0.025);
-    }
-
-    .contact {
-      position: relative;
-
-      min-height: 95svh;
-
-      overflow: hidden;
-
-      padding:
-        120px
-        max(
-          24px,
-          calc((100vw - var(--page)) / 2)
-        )
-        28px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      background:
-        radial-gradient(
-          circle at 78% 42%,
-          rgba(128, 87, 255, 0.42),
-          transparent 23rem
-        ),
-        radial-gradient(
-          circle at 30% 80%,
-          rgba(168, 255, 198, 0.15),
-          transparent 28rem
-        ),
-        #0c0c10;
-    }
-
-    .contact::before {
-      content: "";
-
-      position: absolute;
-
-      width: 430px;
-
-      aspect-ratio: 1;
-
-      right: 8vw;
-      top: 22%;
-
-      border:
-        1px solid rgba(168, 255, 198, 0.26);
-
-      border-radius: 50%;
-
-      box-shadow:
-        0 0 0 40px
-        rgba(168, 255, 198, 0.025),
-        0 0 0 90px
-        rgba(168, 255, 198, 0.018);
-
-      animation:
-        orbit
-        16s
-        linear
-        infinite;
-    }
-
-    .contact-content {
-      position: relative;
-
-      z-index: 2;
-    }
-
-    .contact-content > span {
-      font-size: 0.7rem;
-
-      letter-spacing: 0.15em;
-
-      color: var(--muted);
-    }
-
-    .contact h2 {
-      max-width: 1100px;
-
-      margin:
-        45px
-        0
-        28px;
-
-      font-size:
-        clamp(
-          3.2rem,
-          8vw,
-          9rem
-        );
-
-      line-height: 0.88;
-
-      letter-spacing: -0.07em;
-
-      font-weight: 550;
-    }
-
-    .contact p {
-      max-width: 600px;
-
-      color: #b0b0b8;
-
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .contact-actions {
-      display: flex;
-      align-items: center;
-
-      gap: 28px;
-
-      margin-top: 46px;
-    }
-
-    .contact-primary {
-      padding: 17px 22px;
-
-      border-radius: 999px;
-
-      background: var(--acid);
-
-      color: #070708;
-
-      font-weight: 700;
-    }
-
-    .contact-actions > a:last-child {
-      padding-bottom: 5px;
-
-      border-bottom:
-        1px solid rgba(255, 255, 255, 0.4);
-    }
-
-    .footer {
-      position: relative;
-
-      z-index: 2;
-
-      display: grid;
-
-      grid-template-columns:
-        1fr
-        auto
-        1fr;
-
-      gap: 30px;
-
-      padding-top: 70px;
-
-      font-size: 0.7rem;
-
-      color: #a4a4ac;
-    }
-
-    .footer div {
-      display: flex;
-
-      gap: 20px;
-    }
-
-    .footer > a {
-      justify-self: end;
-    }
-
-    .reveal {
-      opacity: 0;
-
-      transform:
-        translateY(32px);
-
-      transition:
-        opacity 0.75s ease,
-        transform 0.75s
-        cubic-bezier(0.2, 0.7, 0.2, 1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-
-      transform: none;
-    }
-
-    @keyframes load {
-      from {
-        transform:
-          scaleX(0);
-      }
-
-      to {
-        transform:
-          scaleX(1);
-      }
-    }
-
-    @keyframes breathe {
-      from {
-        transform:
-          scale(0.92);
-
-        opacity: 0.7;
-      }
-
-      to {
-        transform:
-          scale(1.08);
-
-        opacity: 1;
-      }
-    }
-
-    @keyframes blob {
-      0%,
-      100% {
-        border-radius:
-          40%
-          60%
-          55%
-          45%;
-
-        transform:
-          rotate(0);
-      }
-
-      50% {
-        border-radius:
-          55%
-          45%
-          35%
-          65%;
-
-        transform:
-          rotate(180deg);
-      }
-    }
-
-    @keyframes orbit {
-      to {
-        transform:
-          rotate(360deg);
-      }
-    }
-
-    @media (max-width: 850px) {
-      :root {
-        --page:
-          calc(100vw - 32px);
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .site-nav {
-        grid-template-columns:
-          1fr
-          1fr;
-      }
-
-      .nav-cta {
-        display: block;
-      }
-
-      #scene {
-        width: 100vw;
-        height: 78vh;
-
-        top: 8vh;
-
-        opacity: 0.85;
-      }
-
-      .hero__content {
-        padding-top: 110px;
-      }
-
-      .hero h1 {
-        font-size:
-          clamp(
-            3.7rem,
-            17vw,
-            7rem
-          );
-      }
-
-      .hero h1 span {
-        padding-left: 7vw;
-      }
-
-      .hero h1 em {
-        padding-left: 0;
-      }
-
-      .status {
-        display: none;
-      }
-
-      .section {
-        padding: 100px 0;
-      }
-
-      .section-head {
-        grid-template-columns: 1fr;
-
-        gap: 26px;
-
-        padding-bottom: 42px;
-      }
-
-      .section-head > span {
-        padding: 0;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-
-        min-height: auto;
-      }
-
-      .project-visual {
-        grid-column: 1;
-        grid-row: auto;
-
-        min-height: 360px;
-
-        margin:
-          0
-          0
-          28px;
-      }
-
-      .project-meta,
-      .project h3,
-      .project p,
-      .project-footer {
-        grid-column: 1;
-      }
-
-      .project h3 {
-        margin-top: 36px;
-      }
-
-      .service-row {
-        grid-template-columns:
-          44px
-          1fr;
-
-        gap: 18px;
-
-        padding: 28px 0;
-      }
-
-      .service-row p {
-        grid-column: 2;
-      }
-
-      .arrow {
-        display: none;
-      }
-
-      .contact {
-        padding-top: 90px;
-      }
-
-      .footer {
-        grid-template-columns: 1fr;
-
-        gap: 18px;
-      }
-
-      .footer div {
-        flex-wrap: wrap;
-      }
-
-      .footer > a {
-        justify-self: start;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
+  <meta
+    name="author"
+    content="Julian Matheus"
+  />
+
+  <meta
+    property="og:title"
+    content="Julian Matheus — Front-end & Sistemas Web"
+  />
+
+  <meta
+    property="og:description"
+    content="Desenvolvimento front-end, interfaces, sistemas web e soluções digitais."
+  />
+
+  <meta
+    property="og:type"
+    content="website"
+  />
+
+  <title>
+    Julian Matheus — Front-end & Sistemas Web
+  </title>
+
+  <script
+    type="module"
+    src="/src/main.ts"
+  ></script>
 </head>
 
 <body>
+
+  <!-- ABERTURA -->
   <div
     class="intro"
-    id="intro"
+    data-intro
+    aria-label="Abertura do portfólio"
   >
-    <div class="intro__inner">
-      <div class="intro__mark">
-        JULIAN MATHEUS
+
+    <canvas
+      class="intro__scene"
+      data-intro-scene
+      aria-hidden="true"
+    ></canvas>
+
+    <div
+      class="intro__glow"
+      aria-hidden="true"
+    ></div>
+
+    <div
+      class="intro__grain"
+      aria-hidden="true"
+    ></div>
+
+    <header class="intro__header">
+
+      <div class="intro__identity">
+
+        <span>
+          JULIAN MATHEUS
+        </span>
+
+        <small>
+          PORTFÓLIO / 2026
+        </small>
+
       </div>
 
-      <div class="intro__bar"></div>
+      <div class="intro__controls">
 
-      <div class="intro__meta">
-        <span>PORTFÓLIO / 2026</span>
-        <span>FRONT-END · SISTEMAS WEB</span>
+        <button
+          class="intro__sound"
+          type="button"
+          data-intro-sound
+        >
+
+          <span
+            class="intro__sound-status"
+            data-intro-sound-status
+          ></span>
+
+          <span data-intro-sound-label>
+            ATIVAR SOM
+          </span>
+
+        </button>
+
+        <button
+          class="intro__skip"
+          type="button"
+          data-intro-skip
+        >
+          PULAR ABERTURA
+
+          <span>
+            ↗
+          </span>
+        </button>
+
       </div>
+
+    </header>
+
+    <div class="intro__content">
+
+      <!-- ETAPA 01 -->
+      <section
+        class="intro__frame intro__frame--01"
+        data-intro-frame="0"
+      >
+
+        <span class="intro__kicker">
+          DESENVOLVEDOR FRONT-END
+        </span>
+
+        <div class="intro__name">
+
+          <span class="intro__mask">
+            <span>
+              JULIAN
+            </span>
+          </span>
+
+          <span class="intro__mask intro__name-outline">
+            <span>
+              MATHEUS
+            </span>
+          </span>
+
+        </div>
+
+      </section>
+
+      <!-- ETAPA 02 -->
+      <section
+        class="intro__frame intro__frame--02"
+        data-intro-frame="1"
+      >
+
+        <span class="intro__frame-number">
+          01
+        </span>
+
+        <div class="intro__statement">
+
+          <span>
+            FRONT-END
+          </span>
+
+          <i>
+            ✦
+          </i>
+
+          <span>
+            SISTEMAS
+          </span>
+
+          <i>
+            ✦
+          </i>
+
+          <span>
+            EXPERIÊNCIAS
+          </span>
+
+        </div>
+
+      </section>
+
+      <!-- ETAPA 03 -->
+      <section
+        class="intro__frame intro__frame--03"
+        data-intro-frame="2"
+      >
+
+        <span class="intro__frame-number">
+          02
+        </span>
+
+        <div class="intro__phrase">
+
+          <span class="intro__mask">
+            <span>
+              Transformando
+            </span>
+          </span>
+
+          <span class="intro__mask intro__phrase-serif">
+            <span>
+              problemas reais
+            </span>
+          </span>
+
+          <span class="intro__mask">
+            <span>
+              em produtos digitais.
+            </span>
+          </span>
+
+        </div>
+
+      </section>
+
+      <!-- ETAPA 04 -->
+      <section
+        class="intro__frame intro__frame--04"
+        data-intro-frame="3"
+      >
+
+        <div class="intro__final">
+
+          <span class="intro__final-small">
+            DESENVOLVIMENTO COM
+          </span>
+
+          <strong>
+            PROPÓSITO
+          </strong>
+
+          <span class="intro__final-dot">
+            .
+          </span>
+
+        </div>
+
+      </section>
+
     </div>
+
+    <footer class="intro__footer">
+
+      <div class="intro__location">
+
+        <span>
+          PORTO VELHO
+        </span>
+
+        <small>
+          RONDÔNIA · BRASIL
+        </small>
+
+      </div>
+
+      <div class="intro__timeline">
+
+        <span
+          class="intro__timeline-progress"
+          data-intro-progress
+        ></span>
+
+      </div>
+
+      <div class="intro__counter">
+
+        <span data-intro-current>
+          01
+        </span>
+
+        <span>
+          /
+        </span>
+
+        <span>
+          04
+        </span>
+
+      </div>
+
+    </footer>
+
+    <div
+      class="intro__transition"
+      data-intro-transition
+      aria-hidden="true"
+    ></div>
+
   </div>
 
-  <nav class="site-nav">
+  <!-- CURSOR -->
+  <div
+    class="cursor"
+    data-cursor
+    aria-hidden="true"
+  >
+    <span data-cursor-label>
+      VER
+    </span>
+  </div>
+
+  <!-- PROGRESSO DA PÁGINA -->
+  <div
+    class="scroll-progress"
+    data-progress
+  ></div>
+
+  <!-- MENU -->
+  <header
+    class="nav"
+    data-nav
+  >
+
     <a
-      class="brand"
-      href="#top"
+      class="nav__brand"
+      href="#inicio"
+      aria-label="Voltar ao início"
     >
-      JULIAN MATHEUS
+      JM.
     </a>
 
-    <div class="nav-links">
+    <nav
+      class="nav__links"
+      aria-label="Navegação principal"
+    >
+
       <a href="#sobre">
         Sobre
       </a>
 
-      <a href="#trabalhos">
+      <a href="#projetos">
         Projetos
       </a>
 
@@ -1389,522 +345,1104 @@
         Serviços
       </a>
 
-      <a href="#processo">
-        Processo
+      <a href="#contato">
+        Contato
       </a>
-    </div>
+
+    </nav>
 
     <a
-      class="nav-cta"
+      class="nav__contact"
       href="#contato"
     >
-      Falar comigo ↗
+      Falar comigo
+
+      <span>
+        ↗
+      </span>
     </a>
-  </nav>
 
-  <main id="top">
+  </header>
 
-    <section class="hero">
-      <div class="hero__glow"></div>
+  <main>
+
+    <!-- HERO -->
+    <section
+      class="hero"
+      id="inicio"
+    >
 
       <canvas
-        id="scene"
+        class="hero__scene"
+        data-scene
         aria-hidden="true"
       ></canvas>
 
-      <div class="hero__content">
-        <span class="eyebrow">
-          FRONT-END · INTERFACES · SISTEMAS · EXPERIÊNCIAS
-        </span>
+      <div
+        class="hero__grid"
+        aria-hidden="true"
+      ></div>
 
-        <h1>
-          Código
+      <div class="hero__content">
+
+        <div class="hero__top reveal">
+
           <span>
-            com propósito.
+            FRONT-END · UI · SISTEMAS WEB
           </span>
 
-          <em>
-            Soluções que funcionam.
-          </em>
-        </h1>
+          <span>
+            PORTO VELHO · RO
+          </span>
 
-        <div class="hero__bottom">
-          <p>
-            Sou Julian Matheus, desenvolvedor front-end,
-            servidor público e estudante de Análise e
-            Desenvolvimento de Sistemas. Crio sites,
-            interfaces e sistemas web para resolver
-            problemas reais.
+        </div>
+
+        <div class="hero__headline">
+
+          <p class="hero__eyebrow reveal">
+            DESENVOLVIMENTO COM PROPÓSITO
           </p>
 
-          <a
-            class="round-link"
-            href="#trabalhos"
-          >
-            <span>Explorar</span>
-            <span>↓</span>
-          </a>
-        </div>
-      </div>
+          <h1>
 
-      <div class="status">
-        <span class="dot"></span>
+            <span class="mask">
+              <span>
+                Código
+              </span>
+            </span>
 
-        <span>
-          DESENVOLVIMENTO WEB
-        </span>
+            <span class="mask hero__outline">
+              <span>
+                que resolve.
+              </span>
+            </span>
 
-        <span>
-          Porto Velho · RO
-        </span>
-      </div>
-    </section>
+            <span class="mask hero__serif">
+              <span>
+                Experiências que ficam.
+              </span>
+            </span>
 
-    <section
-      class="section"
-      id="sobre"
-    >
-      <div class="section-head reveal">
-        <span>
-          01 / SOBRE
-        </span>
+          </h1>
 
-        <h2>
-          Desenvolvimento com olhar para clareza,
-          organização e resultado.
-        </h2>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-index reveal">
-          <span>
-            HTML · CSS · JavaScript
-          </span>
-
-          <span>
-            TypeScript · React · Next.js
-          </span>
-
-          <span>
-            Interfaces · Integrações
-          </span>
         </div>
 
-        <div class="about-copy reveal">
+        <div class="hero__footer reveal">
+
           <p>
             Sou Julian Matheus, desenvolvedor front-end,
             servidor público e estudante de Análise e
             Desenvolvimento de Sistemas.
-          </p>
 
-          <p>
-            Atuo criando soluções internas, interfaces
-            e páginas institucionais. Meu trabalho combina
-            código, experiência do usuário e comunicação
-            direta para transformar ideias em produtos
-            digitais úteis.
+            Transformo processos e ideias em interfaces
+            claras, úteis e bem construídas.
           </p>
 
           <a
-            href="https://github.com/jjulian10"
-            target="_blank"
-            rel="noreferrer"
+            class="hero__explore"
+            href="#projetos"
           >
-            Conhecer meu GitHub ↗
+
+            <span>
+              Explorar projetos
+            </span>
+
+            <span>
+              ↓
+            </span>
+
           </a>
+
         </div>
+
       </div>
+
     </section>
 
-    <section
-      class="section"
-      id="trabalhos"
+    <!-- TECNOLOGIAS -->
+    <div
+      class="tech-marquee"
+      aria-label="Tecnologias"
     >
-      <div class="section-head reveal">
-        <span>
-          02 / PROJETOS
-        </span>
 
-        <h2>
-          Interfaces feitas para resolver problemas reais.
-        </h2>
+      <div class="tech-marquee__track">
+
+        <span>HTML</span>
+        <i>✦</i>
+
+        <span>CSS</span>
+        <i>✦</i>
+
+        <span>JAVASCRIPT</span>
+        <i>✦</i>
+
+        <span>TYPESCRIPT</span>
+        <i>✦</i>
+
+        <span>REACT</span>
+        <i>✦</i>
+
+        <span>NEXT.JS</span>
+        <i>✦</i>
+
+        <span>UX/UI</span>
+        <i>✦</i>
+
+        <span>SISTEMAS WEB</span>
+        <i>✦</i>
+
+        <span>HTML</span>
+        <i>✦</i>
+
+        <span>CSS</span>
+        <i>✦</i>
+
+        <span>JAVASCRIPT</span>
+        <i>✦</i>
+
+        <span>TYPESCRIPT</span>
+        <i>✦</i>
+
+        <span>REACT</span>
+        <i>✦</i>
+
+        <span>NEXT.JS</span>
+        <i>✦</i>
+
+        <span>UX/UI</span>
+        <i>✦</i>
+
+        <span>SISTEMAS WEB</span>
+        <i>✦</i>
+
       </div>
 
-      <div class="work-grid">
+    </div>
 
-        <article class="project reveal">
-          <div class="project-visual">
-            <div class="orb"></div>
+    <!-- SOBRE -->
+    <section
+      class="section about"
+      id="sobre"
+    >
 
-            <span class="project-num">
-              01
-            </span>
-          </div>
+      <div class="section__label reveal">
 
-          <div class="project-meta">
-            <span>
-              UX/UI · FRONT-END · SETIC
-            </span>
+        <span>
+          01
+        </span>
 
-            <span>
-              EM DESENVOLVIMENTO
-            </span>
-          </div>
+        <span>
+          SOBRE
+        </span>
 
-          <h3>
-            SCOPE
-          </h3>
+      </div>
 
-          <p>
-            Sistema de Controle de Planos Estratégicos.
-            O trabalho envolve uma experiência de
-            acompanhamento de projetos com visão de
-            carteira, filtros, indicadores, planejamento
-            estratégico, prazos, entregas e evidências.
+      <div class="about__content">
+
+        <h2 class="section__title reveal">
+          Tecnologia aplicada
+
+          <em>
+            a problemas reais.
+          </em>
+        </h2>
+
+        <div class="about__body">
+
+          <p class="about__lead reveal">
+            Atuo construindo interfaces, páginas
+            institucionais e soluções internas com
+            foco em clareza, organização e experiência.
           </p>
 
-          <div class="project-footer">
-            <div class="tags">
-              <span>React</span>
-              <span>TypeScript</span>
-              <span>Tailwind</span>
+          <div class="about__columns reveal">
+
+            <p>
+              No setor público, participo da criação de
+              ferramentas que ajudam a transformar
+              informação e processos em experiências
+              digitais mais simples de utilizar.
+            </p>
+
+            <div class="about__stack">
+
+              <span>
+                Front-end
+              </span>
+
+              <span>
+                UI / UX
+              </span>
+
+              <span>
+                Sistemas
+              </span>
+
+              <span>
+                Documentação
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROJETOS -->
+    <section
+      class="projects"
+      id="projetos"
+    >
+
+      <div class="projects__intro section">
+
+        <div class="section__label reveal">
+
+          <span>
+            02
+          </span>
+
+          <span>
+            PROJETOS
+          </span>
+
+        </div>
+
+        <h2 class="section__title reveal">
+          Trabalho real.
+
+          <em>
+            Produto funcionando.
+          </em>
+        </h2>
+
+      </div>
+
+      <!-- SCOPE -->
+      <article
+        class="case case--scope"
+        data-case
+      >
+
+        <div class="case__sticky">
+
+          <div class="case__head">
+
+            <div>
+
+              <span class="case__index">
+                01 / SETIC
+              </span>
+
+              <h3>
+                SCOPE
+              </h3>
+
+              <p>
+                Sistema de Controle de Planos Estratégicos
+              </p>
+
             </div>
 
             <a
               href="https://ubiquitous-bonbon-dd4b79.netlify.app/"
               target="_blank"
               rel="noreferrer"
+              data-cursor-text="ABRIR"
             >
-              Abrir projeto ↗
+              Visitar projeto ↗
             </a>
-          </div>
-        </article>
 
-        <article class="project reveal">
-          <div class="project-visual">
-            <div class="orb"></div>
-
-            <span class="project-num">
-              02
-            </span>
           </div>
 
-          <div class="project-meta">
-            <span>
-              INFORMAÇÃO · ACESSIBILIDADE · SETIC
-            </span>
+          <div
+            class="case__stage"
+            data-tilt
+          >
 
-            <span>
-              PUBLICADO
-            </span>
+            <div class="case__concept case__concept--scope">
+
+              <span class="concept-badge">
+                VISUAL CONCEITUAL
+              </span>
+
+              <div class="scope-window">
+
+                <div class="scope-window__top">
+
+                  <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                  <strong>
+                    SCOPE
+                  </strong>
+
+                  <small>
+                    Planejamento Estratégico
+                  </small>
+
+                </div>
+
+                <div class="scope-dashboard">
+
+                  <aside class="scope-sidebar">
+
+                    <div class="scope-sidebar__logo">
+                      S
+                    </div>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                  </aside>
+
+                  <div class="scope-content">
+
+                    <div class="scope-heading">
+
+                      <div>
+
+                        <small>
+                          MONITORAMENTO
+                        </small>
+
+                        <strong>
+                          Projetos estratégicos
+                        </strong>
+
+                      </div>
+
+                      <button type="button">
+                        + Novo projeto
+                      </button>
+
+                    </div>
+
+                    <div class="scope-metrics">
+
+                      <div>
+
+                        <small>
+                          Projetos
+                        </small>
+
+                        <strong>
+                          24
+                        </strong>
+
+                        <span>
+                          +12%
+                        </span>
+
+                      </div>
+
+                      <div>
+
+                        <small>
+                          Em andamento
+                        </small>
+
+                        <strong>
+                          14
+                        </strong>
+
+                        <span>
+                          58%
+                        </span>
+
+                      </div>
+
+                      <div>
+
+                        <small>
+                          Concluídos
+                        </small>
+
+                        <strong>
+                          08
+                        </strong>
+
+                        <span>
+                          +4
+                        </span>
+
+                      </div>
+
+                    </div>
+
+                    <div class="scope-chart">
+
+                      <div class="scope-chart__title">
+
+                        <span>
+                          Evolução dos projetos
+                        </span>
+
+                        <small>
+                          Últimos 6 meses
+                        </small>
+
+                      </div>
+
+                      <div class="scope-chart__bars">
+
+                        <span style="--bar: 34%"></span>
+                        <span style="--bar: 48%"></span>
+                        <span style="--bar: 42%"></span>
+                        <span style="--bar: 65%"></span>
+                        <span style="--bar: 76%"></span>
+                        <span style="--bar: 91%"></span>
+
+                      </div>
+
+                    </div>
+
+                    <div class="scope-kanban">
+
+                      <div>
+
+                        <small>
+                          PLANEJADO
+                        </small>
+
+                        <article></article>
+                        <article></article>
+
+                      </div>
+
+                      <div>
+
+                        <small>
+                          EM ANDAMENTO
+                        </small>
+
+                        <article></article>
+                        <article></article>
+
+                      </div>
+
+                      <div>
+
+                        <small>
+                          HOMOLOGAÇÃO
+                        </small>
+
+                        <article></article>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div class="concept-orbit concept-orbit--one"></div>
+              <div class="concept-orbit concept-orbit--two"></div>
+
+            </div>
+
           </div>
 
-          <h3>
-            Wiki.SETIC
-          </h3>
+          <div class="case__footer">
 
-          <p>
-            Plataforma institucional para organizar
-            conteúdos técnicos, orientações, manuais e
-            conhecimento da SETIC, com uma estrutura
-            pensada para facilitar navegação, consulta e
-            acesso à informação.
-          </p>
+            <p>
+              Sistema para acompanhamento de projetos
+              estratégicos, indicadores, etapas, responsáveis,
+              evidências e evolução das entregas.
+            </p>
 
-          <div class="project-footer">
-            <div class="tags">
-              <span>Web</span>
-              <span>Documentação</span>
-              <span>Institucional</span>
+            <div class="chips">
+
+              <span>
+                React
+              </span>
+
+              <span>
+                TypeScript
+              </span>
+
+              <span>
+                UX/UI
+              </span>
+
+              <span>
+                Gestão
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- WIKI.SETIC -->
+      <article
+        class="case case--wiki"
+        data-case
+      >
+
+        <div class="case__sticky">
+
+          <div class="case__head">
+
+            <div>
+
+              <span class="case__index">
+                02 / SETIC
+              </span>
+
+              <h3>
+                Wiki.SETIC
+              </h3>
+
+              <p>
+                Documentação e conhecimento institucional
+              </p>
+
             </div>
 
             <a
               href="https://wiki.setic.ro.gov.br/"
               target="_blank"
               rel="noreferrer"
+              data-cursor-text="ABRIR"
             >
-              Abrir projeto ↗
+              Visitar Wiki ↗
             </a>
-          </div>
-        </article>
 
-        <article class="project reveal">
-          <div class="project-visual">
-            <div class="orb"></div>
-
-            <span class="project-num">
-              03
-            </span>
           </div>
 
-          <div class="project-meta">
-            <span>
-              SISTEMA INTERNO · DADOS
-            </span>
+          <div
+            class="case__stage case__stage--wiki"
+            data-tilt
+          >
 
-            <span>
-              PROJETO
-            </span>
+            <div class="case__concept case__concept--wiki">
+
+              <span class="concept-badge">
+                VISUAL CONCEITUAL
+              </span>
+
+              <div class="wiki-window">
+
+                <div class="wiki-window__top">
+
+                  <strong>
+                    Wiki.SETIC
+                  </strong>
+
+                  <div class="wiki-search">
+                    Pesquisar documentação...
+                  </div>
+
+                  <span>
+                    ⌘ K
+                  </span>
+
+                </div>
+
+                <div class="wiki-layout">
+
+                  <aside class="wiki-sidebar">
+
+                    <strong>
+                      CONHECIMENTO
+                    </strong>
+
+                    <span>
+                      Visão geral
+                    </span>
+
+                    <span>
+                      Gerencial
+                    </span>
+
+                    <span>
+                      Base de conhecimento
+                    </span>
+
+                    <span>
+                      Processos
+                    </span>
+
+                    <span>
+                      Compliance
+                    </span>
+
+                    <span>
+                      Sistemas
+                    </span>
+
+                  </aside>
+
+                  <div class="wiki-content">
+
+                    <div class="wiki-hero">
+
+                      <small>
+                        PORTAL INSTITUCIONAL
+                      </small>
+
+                      <h4>
+                        Conhecimento conectado.
+                      </h4>
+
+                      <p>
+                        Documentação, processos e informação
+                        em um único ambiente.
+                      </p>
+
+                    </div>
+
+                    <div class="wiki-cards">
+
+                      <article>
+
+                        <span>
+                          01
+                        </span>
+
+                        <strong>
+                          Documentação
+                        </strong>
+
+                        <small>
+                          Guias e manuais
+                        </small>
+
+                      </article>
+
+                      <article>
+
+                        <span>
+                          02
+                        </span>
+
+                        <strong>
+                          Processos
+                        </strong>
+
+                        <small>
+                          Fluxos institucionais
+                        </small>
+
+                      </article>
+
+                      <article>
+
+                        <span>
+                          03
+                        </span>
+
+                        <strong>
+                          Indicadores
+                        </strong>
+
+                        <small>
+                          Informação gerencial
+                        </small>
+
+                      </article>
+
+                    </div>
+
+                    <div class="wiki-network">
+
+                      <div class="wiki-node wiki-node--main">
+                        SETIC
+                      </div>
+
+                      <div class="wiki-node wiki-node--one">
+                        DOCS
+                      </div>
+
+                      <div class="wiki-node wiki-node--two">
+                        DATA
+                      </div>
+
+                      <div class="wiki-node wiki-node--three">
+                        UX
+                      </div>
+
+                      <div class="wiki-node wiki-node--four">
+                        GOV
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
 
-          <h3>
-            Quadro de Competências
-          </h3>
+          <div class="case__footer">
 
-          <p>
-            Interface para organizar perfis profissionais,
-            competências e informações institucionais,
-            tornando a consulta e a gestão desses dados
-            mais claras para o uso interno.
-          </p>
+            <p>
+              Plataforma para organizar documentação técnica,
+              conteúdos gerenciais, manuais, indicadores,
+              processos e conhecimento institucional.
+            </p>
 
-          <div class="project-footer">
-            <div class="tags">
-              <span>Next.js</span>
-              <span>TypeScript</span>
-              <span>SQL</span>
+            <div class="chips">
+
+              <span>
+                Informação
+              </span>
+
+              <span>
+                Documentação
+              </span>
+
+              <span>
+                Institucional
+              </span>
+
+              <span>
+                UX
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- QUADRO DE COMPETÊNCIAS -->
+      <article class="case case--compact">
+
+        <div class="case__compact-inner">
+
+          <div class="case__head">
+
+            <div>
+
+              <span class="case__index">
+                03 / SISTEMA INTERNO
+              </span>
+
+              <h3>
+                Quadro de Competências
+              </h3>
+
+              <p>
+                Perfis, competências e informação institucional
+              </p>
+
             </div>
 
             <a
               href="https://github.com/jjulian10"
               target="_blank"
               rel="noreferrer"
+              data-cursor-text="GITHUB"
             >
-              Ver meu GitHub ↗
+              GitHub ↗
             </a>
-          </div>
-        </article>
 
-      </div>
+          </div>
+
+          <div class="skills-concept">
+
+            <span class="concept-badge">
+              VISUAL CONCEITUAL
+            </span>
+
+            <div class="skills-center">
+
+              <div class="skills-avatar">
+                JM
+              </div>
+
+              <strong>
+                Perfil profissional
+              </strong>
+
+              <small>
+                Competências & habilidades
+              </small>
+
+            </div>
+
+            <div class="skills-node skills-node--one">
+
+              <strong>
+                FRONT-END
+              </strong>
+
+              <span>
+                92%
+              </span>
+
+            </div>
+
+            <div class="skills-node skills-node--two">
+
+              <strong>
+                TYPESCRIPT
+              </strong>
+
+              <span>
+                88%
+              </span>
+
+            </div>
+
+            <div class="skills-node skills-node--three">
+
+              <strong>
+                UI / UX
+              </strong>
+
+              <span>
+                84%
+              </span>
+
+            </div>
+
+            <div class="skills-node skills-node--four">
+
+              <strong>
+                SISTEMAS
+              </strong>
+
+              <span>
+                90%
+              </span>
+
+            </div>
+
+            <div class="skills-ring skills-ring--one"></div>
+            <div class="skills-ring skills-ring--two"></div>
+
+          </div>
+
+          <div class="case__footer">
+
+            <p>
+              Interface para organizar perfis profissionais,
+              competências, habilidades e informações
+              institucionais para consulta e gestão.
+            </p>
+
+            <div class="chips">
+
+              <span>
+                Next.js
+              </span>
+
+              <span>
+                TypeScript
+              </span>
+
+              <span>
+                SQL
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
     </section>
 
+    <!-- SERVIÇOS -->
     <section
-      class="section"
+      class="section services"
       id="servicos"
     >
-      <div class="section-head reveal">
+
+      <div class="section__label reveal">
+
         <span>
-          03 / SERVIÇOS
+          03
         </span>
 
-        <h2>
-          Soluções digitais do tamanho da necessidade.
-        </h2>
+        <span>
+          SERVIÇOS
+        </span>
+
       </div>
 
-      <div class="services reveal">
+      <h2 class="section__title reveal">
+        Da ideia
 
-        <article class="service-row">
-          <span>01</span>
+        <em>
+          ao produto no ar.
+        </em>
+      </h2>
+
+      <div class="services__list">
+
+        <article class="service reveal">
+
+          <span>
+            01
+          </span>
 
           <h3>
             Landing pages
           </h3>
 
           <p>
-            Páginas focadas em apresentar uma oferta
-            com clareza e transformar visitas em contatos,
-            com experiência responsiva, WhatsApp,
-            redes sociais e SEO essencial.
+            Páginas com presença visual,
+            responsividade e foco em transformar
+            atenção em contato.
           </p>
 
-          <span class="arrow">
+          <i>
             ↗
-          </span>
+          </i>
+
         </article>
 
-        <article class="service-row">
-          <span>02</span>
+        <article class="service reveal">
+
+          <span>
+            02
+          </span>
 
           <h3>
             Sites profissionais
           </h3>
 
           <p>
-            Presença digital moderna e alinhada à
-            identidade do projeto, incluindo páginas
-            institucionais, serviços, formulários
-            e integrações.
+            Presença digital institucional com
+            conteúdo organizado, identidade e
+            experiência consistente.
           </p>
 
-          <span class="arrow">
+          <i>
             ↗
-          </span>
+          </i>
+
         </article>
 
-        <article class="service-row">
-          <span>03</span>
+        <article class="service reveal">
+
+          <span>
+            03
+          </span>
 
           <h3>
             Sistemas web
           </h3>
 
           <p>
-            Ferramentas sob medida para organizar
-            processos e reduzir trabalho manual, com
-            painéis, cadastros, dados e automação
-            de rotinas.
+            Interfaces e ferramentas para organizar
+            processos, dados, acompanhamento
+            e rotinas.
           </p>
 
-          <span class="arrow">
+          <i>
             ↗
-          </span>
+          </i>
+
         </article>
 
-        <article class="service-row">
-          <span>04</span>
+        <article class="service reveal">
+
+          <span>
+            04
+          </span>
 
           <h3>
             Evolução contínua
           </h3>
 
           <p>
-            Correções, novas funcionalidades,
-            manutenção e otimizações para a solução
-            continuar útil, rápida e sustentável.
+            Manutenção, melhorias de experiência
+            e evolução de funcionalidades conforme
+            o produto cresce.
           </p>
 
-          <span class="arrow">
+          <i>
             ↗
-          </span>
+          </i>
+
         </article>
 
       </div>
+
     </section>
 
-    <section
-      class="section"
-      id="processo"
-    >
-      <div class="section-head reveal">
-        <span>
-          04 / PROCESSO
-        </span>
-
-        <h2>
-          Do primeiro contato à publicação.
-        </h2>
-      </div>
-
-      <div class="services reveal">
-
-        <article class="service-row">
-          <span>01</span>
-
-          <h3>
-            Entender
-          </h3>
-
-          <p>
-            Conversamos sobre o contexto, o público,
-            a necessidade e o objetivo do projeto.
-          </p>
-
-          <span class="arrow">
-            →
-          </span>
-        </article>
-
-        <article class="service-row">
-          <span>02</span>
-
-          <h3>
-            Projetar
-          </h3>
-
-          <p>
-            Organizo conteúdo, interface, prioridades
-            e o caminho que o usuário deve percorrer.
-          </p>
-
-          <span class="arrow">
-            →
-          </span>
-        </article>
-
-        <article class="service-row">
-          <span>03</span>
-
-          <h3>
-            Desenvolver
-          </h3>
-
-          <p>
-            Transformo a proposta em uma experiência
-            rápida, responsiva e funcional.
-          </p>
-
-          <span class="arrow">
-            →
-          </span>
-        </article>
-
-        <article class="service-row">
-          <span>04</span>
-
-          <h3>
-            Publicar
-          </h3>
-
-          <p>
-            Revisamos a solução, ajustamos os últimos
-            detalhes e colocamos o projeto no ar.
-          </p>
-
-          <span class="arrow">
-            ↗
-          </span>
-        </article>
-
-      </div>
-    </section>
-
+    <!-- CONTATO -->
     <section
       class="contact"
       id="contato"
     >
-      <div class="contact-content reveal">
-        <span>
-          05 / CONTATO
-        </span>
 
-        <h2>
-          Tem uma ideia? Vamos colocá-la no ar.
+      <div
+        class="contact__halo"
+        aria-hidden="true"
+      ></div>
+
+      <div class="contact__inner">
+
+        <div class="section__label reveal">
+
+          <span>
+            04
+          </span>
+
+          <span>
+            CONTATO
+          </span>
+
+        </div>
+
+        <h2 class="reveal">
+          Tem algo
+
+          <span>
+            para construir?
+          </span>
         </h2>
 
-        <p>
-          Conte o que você precisa. Vamos organizar
-          a ideia e encontrar o melhor caminho para
-          transformá-la em um site, interface ou
-          sistema web.
+        <p class="reveal">
+          Vamos transformar a ideia em uma experiência
+          digital clara, funcional e com personalidade.
         </p>
 
-        <div class="contact-actions">
+        <div class="contact__actions reveal">
+
           <a
-            class="contact-primary"
+            class="contact__primary"
             href="https://wa.me/5569992667022?text=Ol%C3%A1%20Julian%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto."
             target="_blank"
             rel="noreferrer"
           >
-            Falar no WhatsApp ↗
+            Falar no WhatsApp
+
+            <span>
+              ↗
+            </span>
           </a>
 
-          <a
-            href="https://github.com/jjulian10"
-            target="_blank"
-            rel="noreferrer"
-          >
-            github.com/jjulian10 ↗
-          </a>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <span>
-          JULIAN MATHEUS © 2026
-        </span>
-
-        <div>
           <a
             href="https://github.com/jjulian10"
             target="_blank"
@@ -1913,686 +1451,29 @@
             GitHub ↗
           </a>
 
-          <a
-            href="https://wa.me/5569992667022"
-            target="_blank"
-            rel="noreferrer"
-          >
-            WhatsApp ↗
-          </a>
         </div>
 
-        <a href="#top">
-          Voltar ao topo ↑
+      </div>
+
+      <footer class="footer">
+
+        <span>
+          JULIAN MATHEUS © 2026
+        </span>
+
+        <span>
+          FRONT-END · PORTO VELHO / RO
+        </span>
+
+        <a href="#inicio">
+          VOLTAR AO TOPO ↑
         </a>
+
       </footer>
+
     </section>
+
   </main>
 
-  <script>
-    (() => {
-      const intro =
-        document.getElementById("intro");
-
-      window.setTimeout(
-        () => {
-          intro.classList.add("hide");
-        },
-        1650
-      );
-
-      const observer =
-        new IntersectionObserver(
-          (entries) => {
-            for (const entry of entries) {
-              if (!entry.isIntersecting) {
-                continue;
-              }
-
-              entry.target.classList.add(
-                "visible"
-              );
-
-              observer.unobserve(
-                entry.target
-              );
-            }
-          },
-          {
-            threshold: 0.12
-          }
-        );
-
-      document
-        .querySelectorAll(".reveal")
-        .forEach(
-          (element) => {
-            observer.observe(element);
-          }
-        );
-
-      document
-        .querySelectorAll(".project")
-        .forEach(
-          (card) => {
-            card.addEventListener(
-              "pointermove",
-              (event) => {
-                if (
-                  window
-                    .matchMedia(
-                      "(pointer: coarse)"
-                    )
-                    .matches
-                ) {
-                  return;
-                }
-
-                const rect =
-                  card.getBoundingClientRect();
-
-                const x =
-                  (
-                    event.clientX -
-                    rect.left
-                  ) /
-                  rect.width;
-
-                const y =
-                  (
-                    event.clientY -
-                    rect.top
-                  ) /
-                  rect.height;
-
-                card.style.setProperty(
-                  "--ry",
-                  `${(x - 0.5) * 5}deg`
-                );
-
-                card.style.setProperty(
-                  "--rx",
-                  `${(0.5 - y) * 5}deg`
-                );
-
-                card.style.setProperty(
-                  "--mx",
-                  `${x * 100}%`
-                );
-
-                card.style.setProperty(
-                  "--my",
-                  `${y * 100}%`
-                );
-              }
-            );
-
-            card.addEventListener(
-              "pointerleave",
-              () => {
-                card.style.setProperty(
-                  "--ry",
-                  "0deg"
-                );
-
-                card.style.setProperty(
-                  "--rx",
-                  "0deg"
-                );
-
-                card.style.setProperty(
-                  "--mx",
-                  "50%"
-                );
-
-                card.style.setProperty(
-                  "--my",
-                  "50%"
-                );
-              }
-            );
-          }
-        );
-
-      const canvas =
-        document.getElementById(
-          "scene"
-        );
-
-      const gl =
-        canvas.getContext(
-          "webgl",
-          {
-            alpha: true,
-            antialias: true
-          }
-        );
-
-      if (!gl) {
-        return;
-      }
-
-      const vertex = `
-        attribute vec3 aPosition;
-
-        uniform float uTime;
-        uniform vec2 uPointer;
-        uniform float uAspect;
-
-        varying float vWave;
-        varying vec3 vPosition;
-
-        mat3 rotateX(float a) {
-          float s = sin(a);
-          float c = cos(a);
-
-          return mat3(
-            1.0, 0.0, 0.0,
-            0.0, c, -s,
-            0.0, s, c
-          );
-        }
-
-        mat3 rotateY(float a) {
-          float s = sin(a);
-          float c = cos(a);
-
-          return mat3(
-            c, 0.0, s,
-            0.0, 1.0, 0.0,
-            -s, 0.0, c
-          );
-        }
-
-        void main() {
-          vec3 p = aPosition;
-
-          float wave =
-            sin(
-              p.y * 5.0 +
-              uTime * 1.4
-            ) * 0.055
-            +
-            cos(
-              p.x * 6.0 -
-              uTime
-            ) * 0.025;
-
-          p *= 1.0 + wave;
-
-          p =
-            rotateX(
-              uPointer.y * 0.22 +
-              sin(uTime * 0.25) *
-              0.12
-            ) * p;
-
-          p =
-            rotateY(
-              uTime * 0.18 +
-              uPointer.x *
-              0.28
-            ) * p;
-
-          vWave = wave;
-          vPosition = p;
-
-          float z =
-            p.z + 3.4;
-
-          vec2 pos =
-            p.xy /
-            z *
-            2.25;
-
-          pos.x /= uAspect;
-
-          gl_Position =
-            vec4(
-              pos,
-              (z - 3.4) / 5.0,
-              1.0
-            );
-        }
-      `;
-
-      const fragment = `
-        precision mediump float;
-
-        varying float vWave;
-        varying vec3 vPosition;
-
-        void main() {
-          vec3 acid =
-            vec3(
-              0.66,
-              1.0,
-              0.78
-            );
-
-          vec3 violet =
-            vec3(
-              0.50,
-              0.34,
-              1.0
-            );
-
-          float light =
-            clamp(
-              vPosition.y * 0.35 +
-              vPosition.z * 0.32 +
-              0.58,
-              0.0,
-              1.0
-            );
-
-          vec3 color =
-            mix(
-              violet,
-              acid,
-              light
-            );
-
-          color +=
-            vWave * 1.5;
-
-          float rim =
-            pow(
-              1.0 -
-              abs(
-                normalize(
-                  vPosition
-                ).z
-              ),
-              2.0
-            );
-
-          color +=
-            rim * 0.23;
-
-          gl_FragColor =
-            vec4(
-              color,
-              0.93
-            );
-        }
-      `;
-
-      const compile = (
-        type,
-        source
-      ) => {
-        const shader =
-          gl.createShader(type);
-
-        gl.shaderSource(
-          shader,
-          source
-        );
-
-        gl.compileShader(
-          shader
-        );
-
-        if (
-          !gl.getShaderParameter(
-            shader,
-            gl.COMPILE_STATUS
-          )
-        ) {
-          console.error(
-            gl.getShaderInfoLog(
-              shader
-            )
-          );
-        }
-
-        return shader;
-      };
-
-      const program =
-        gl.createProgram();
-
-      gl.attachShader(
-        program,
-        compile(
-          gl.VERTEX_SHADER,
-          vertex
-        )
-      );
-
-      gl.attachShader(
-        program,
-        compile(
-          gl.FRAGMENT_SHADER,
-          fragment
-        )
-      );
-
-      gl.linkProgram(program);
-
-      gl.useProgram(program);
-
-      const lat = 56;
-      const lon = 72;
-
-      const vertices = [];
-      const indices = [];
-
-      for (
-        let y = 0;
-        y <= lat;
-        y++
-      ) {
-        const v =
-          y / lat;
-
-        const theta =
-          v * Math.PI;
-
-        for (
-          let x = 0;
-          x <= lon;
-          x++
-        ) {
-          const u =
-            x / lon;
-
-          const phi =
-            u *
-            Math.PI *
-            2;
-
-          vertices.push(
-            Math.sin(theta) *
-              Math.cos(phi) *
-              1.35,
-
-            Math.cos(theta) *
-              1.35,
-
-            Math.sin(theta) *
-              Math.sin(phi) *
-              1.35
-          );
-        }
-      }
-
-      for (
-        let y = 0;
-        y < lat;
-        y++
-      ) {
-        for (
-          let x = 0;
-          x < lon;
-          x++
-        ) {
-          const a =
-            y *
-              (lon + 1) +
-            x;
-
-          const b =
-            a +
-            lon +
-            1;
-
-          indices.push(
-            a,
-            b,
-            a + 1,
-
-            b,
-            b + 1,
-            a + 1
-          );
-        }
-      }
-
-      const vertexBuffer =
-        gl.createBuffer();
-
-      gl.bindBuffer(
-        gl.ARRAY_BUFFER,
-        vertexBuffer
-      );
-
-      gl.bufferData(
-        gl.ARRAY_BUFFER,
-        new Float32Array(
-          vertices
-        ),
-        gl.STATIC_DRAW
-      );
-
-      const indexBuffer =
-        gl.createBuffer();
-
-      gl.bindBuffer(
-        gl.ELEMENT_ARRAY_BUFFER,
-        indexBuffer
-      );
-
-      gl.bufferData(
-        gl.ELEMENT_ARRAY_BUFFER,
-        new Uint16Array(
-          indices
-        ),
-        gl.STATIC_DRAW
-      );
-
-      const position =
-        gl.getAttribLocation(
-          program,
-          "aPosition"
-        );
-
-      gl.enableVertexAttribArray(
-        position
-      );
-
-      gl.vertexAttribPointer(
-        position,
-        3,
-        gl.FLOAT,
-        false,
-        0,
-        0
-      );
-
-      const timeUniform =
-        gl.getUniformLocation(
-          program,
-          "uTime"
-        );
-
-      const pointerUniform =
-        gl.getUniformLocation(
-          program,
-          "uPointer"
-        );
-
-      const aspectUniform =
-        gl.getUniformLocation(
-          program,
-          "uAspect"
-        );
-
-      let pointerX = 0;
-      let pointerY = 0;
-
-      let targetX = 0;
-      let targetY = 0;
-
-      canvas.addEventListener(
-        "pointermove",
-        (event) => {
-          const rect =
-            canvas.getBoundingClientRect();
-
-          targetX =
-            (
-              (
-                event.clientX -
-                rect.left
-              ) /
-              rect.width
-            ) *
-              2 -
-            1;
-
-          targetY =
-            -(
-              (
-                (
-                  event.clientY -
-                  rect.top
-                ) /
-                rect.height
-              ) *
-                2 -
-              1
-            );
-        }
-      );
-
-      canvas.addEventListener(
-        "pointerleave",
-        () => {
-          targetX = 0;
-          targetY = 0;
-        }
-      );
-
-      const resize = () => {
-        const dpr =
-          Math.min(
-            window.devicePixelRatio ||
-              1,
-            1.7
-          );
-
-        const rect =
-          canvas.getBoundingClientRect();
-
-        const width =
-          Math.max(
-            1,
-            Math.floor(
-              rect.width *
-              dpr
-            )
-          );
-
-        const height =
-          Math.max(
-            1,
-            Math.floor(
-              rect.height *
-              dpr
-            )
-          );
-
-        if (
-          canvas.width !== width ||
-          canvas.height !== height
-        ) {
-          canvas.width = width;
-          canvas.height = height;
-
-          gl.viewport(
-            0,
-            0,
-            width,
-            height
-          );
-        }
-
-        gl.uniform1f(
-          aspectUniform,
-          width / height
-        );
-      };
-
-      gl.enable(
-        gl.DEPTH_TEST
-      );
-
-      gl.enable(
-        gl.BLEND
-      );
-
-      gl.blendFunc(
-        gl.SRC_ALPHA,
-        gl.ONE_MINUS_SRC_ALPHA
-      );
-
-      gl.clearColor(
-        0,
-        0,
-        0,
-        0
-      );
-
-      const start =
-        performance.now();
-
-      const render = (
-        now
-      ) => {
-        resize();
-
-        pointerX +=
-          (
-            targetX -
-            pointerX
-          ) *
-          0.045;
-
-        pointerY +=
-          (
-            targetY -
-            pointerY
-          ) *
-          0.045;
-
-        gl.clear(
-          gl.COLOR_BUFFER_BIT |
-          gl.DEPTH_BUFFER_BIT
-        );
-
-        gl.uniform1f(
-          timeUniform,
-          (
-            now -
-            start
-          ) /
-            1000
-        );
-
-        gl.uniform2f(
-          pointerUniform,
-          pointerX,
-          pointerY
-        );
-
-        gl.drawElements(
-          gl.TRIANGLES,
-          indices.length,
-          gl.UNSIGNED_SHORT,
-          0
-        );
-
-        requestAnimationFrame(
-          render
-        );
-      };
-
-      requestAnimationFrame(
-        render
-      );
-    })();
-  </script>
 </body>
 </html>
