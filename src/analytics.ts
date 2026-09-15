@@ -1,91 +1,71 @@
-const measurementId =
-  "G-9HX7XJH5P4";
-
-type AnalyticsValue =
-  | string
-  | number
-  | boolean
-  | Date
-  | undefined;
-
 type AnalyticsParams =
   Record<
     string,
-    AnalyticsValue
+    string | number | boolean
   >;
 
 declare global {
   interface Window {
-    dataLayer: unknown[];
-    gtag: (
-      command: string,
-      ...args: unknown[]
+    gtag?: (
+      command: "event",
+      eventName: string,
+      params?: AnalyticsParams
     ) => void;
   }
 }
 
-const loadScript = (): void => {
-  const script =
-    document.createElement(
-      "script"
-    );
-
-  script.async = true;
-
-  script.src =
-    `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-
-  document.head.appendChild(
-    script
-  );
-};
-
 export const trackEvent = (
-  name: string,
+  eventName: string,
   params: AnalyticsParams = {}
 ): void => {
-  if (!window.gtag) {
-    return;
-  }
-
-  window.gtag(
+  window.gtag?.(
     "event",
-    name,
+    eventName,
     params
   );
 };
 
-export const initAnalytics =
+export const initAnalyticsEvents =
   (): void => {
-    if (
-      window.location.hostname ===
-        "localhost" ||
-      window.location.hostname ===
-        "127.0.0.1"
-    ) {
-      return;
-    }
+    document.addEventListener(
+      "click",
+      event => {
+        const target =
+          event.target as HTMLElement;
 
-    window.dataLayer =
-      window.dataLayer || [];
+        const link =
+          target.closest<HTMLAnchorElement>(
+            "[data-analytics-event]"
+          );
 
-    window.gtag = (
-      ...args: unknown[]
-    ): void => {
-      window.dataLayer.push(
-        args
-      );
-    };
+        if (!link) {
+          return;
+        }
 
-    loadScript();
+        const eventName =
+          link.dataset.analyticsEvent;
 
-    window.gtag(
-      "js",
-      new Date()
-    );
+        if (!eventName) {
+          return;
+        }
 
-    window.gtag(
-      "config",
-      measurementId
+        trackEvent(
+          eventName,
+          {
+            placement:
+              link.dataset.analyticsPlacement ??
+              "unknown",
+
+            link_url:
+              link.href,
+
+            link_text:
+              link.textContent
+                ?.trim()
+                .replace(/\s+/g, " ") ??
+              ""
+          }
+        );
+      }
     );
   };
