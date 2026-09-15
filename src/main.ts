@@ -9,8 +9,10 @@ import { initIntro } from "./intro";
 import { initIntroScene } from "./intro-scene";
 import { initScene } from "./scene";
 import { initUi } from "./ui";
+import { initAnalytics } from "./analytics";
 
 const start = (): void => {
+  initAnalytics();
   initIntroScene();
   initIntro();
   initUi();
