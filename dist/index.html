@@ -1,6 +1,27 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+
+  <!-- Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-9HX7XJH5P4"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+
+    gtag("config", "G-9HX7XJH5P4", {
+      send_page_view: true
+    });
+  </script>
+
   <meta charset="UTF-8" />
 
   <meta
@@ -38,9 +59,20 @@
     content="website"
   />
 
+  <meta
+    property="og:url"
+    content="https://julian-matheus-dev.netlify.app/"
+  />
+
+  <link
+    rel="canonical"
+    href="https://julian-matheus-dev.netlify.app/"
+  />
+
   <title>
     Julian Matheus — Front-end & Sistemas Web
   </title>
+
 
   <script type="module" crossorigin src="/assets/index-ClrRbauq.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-CFzQxgCf.css">
@@ -54,6 +86,7 @@
     data-intro
     aria-label="Abertura do portfólio"
   >
+
     <canvas
       class="intro__scene"
       data-intro-scene
@@ -73,6 +106,7 @@
     <header class="intro__header">
 
       <div class="intro__identity">
+
         <span>
           JULIAN MATHEUS
         </span>
@@ -80,6 +114,7 @@
         <small>
           PORTFÓLIO / 2026
         </small>
+
       </div>
 
       <div class="intro__controls">
@@ -89,6 +124,7 @@
           type="button"
           data-intro-sound
         >
+
           <span
             class="intro__sound-status"
             data-intro-sound-status
@@ -97,6 +133,7 @@
           <span data-intro-sound-label>
             ATIVAR SOM
           </span>
+
         </button>
 
         <button
@@ -122,11 +159,13 @@
         class="intro__frame intro__frame--01"
         data-intro-frame="0"
       >
+
         <span class="intro__kicker">
           DESENVOLVEDOR FRONT-END
         </span>
 
         <div class="intro__name">
+
           <span class="intro__mask">
             <span>
               JULIAN
@@ -138,7 +177,9 @@
               MATHEUS
             </span>
           </span>
+
         </div>
+
       </section>
 
       <!-- ETAPA 02 -->
@@ -146,11 +187,13 @@
         class="intro__frame intro__frame--02"
         data-intro-frame="1"
       >
+
         <span class="intro__frame-number">
           01
         </span>
 
         <div class="intro__statement">
+
           <span>
             FRONT-END
           </span>
@@ -170,7 +213,9 @@
           <span>
             EXPERIÊNCIAS
           </span>
+
         </div>
+
       </section>
 
       <!-- ETAPA 03 -->
@@ -178,11 +223,13 @@
         class="intro__frame intro__frame--03"
         data-intro-frame="2"
       >
+
         <span class="intro__frame-number">
           02
         </span>
 
         <div class="intro__phrase">
+
           <span class="intro__mask">
             <span>
               Transformando
@@ -200,7 +247,9 @@
               em produtos digitais.
             </span>
           </span>
+
         </div>
+
       </section>
 
       <!-- ETAPA 04 -->
@@ -208,7 +257,9 @@
         class="intro__frame intro__frame--04"
         data-intro-frame="3"
       >
+
         <div class="intro__final">
+
           <span class="intro__final-small">
             DESENVOLVIMENTO COM
           </span>
@@ -220,7 +271,9 @@
           <span class="intro__final-dot">
             .
           </span>
+
         </div>
+
       </section>
 
     </div>
@@ -228,6 +281,7 @@
     <footer class="intro__footer">
 
       <div class="intro__location">
+
         <span>
           PORTO VELHO
         </span>
@@ -235,16 +289,20 @@
         <small>
           RONDÔNIA · BRASIL
         </small>
+
       </div>
 
       <div class="intro__timeline">
+
         <span
           class="intro__timeline-progress"
           data-intro-progress
         ></span>
+
       </div>
 
       <div class="intro__counter">
+
         <span data-intro-current>
           01
         </span>
@@ -256,6 +314,7 @@
         <span>
           04
         </span>
+
       </div>
 
     </footer>
@@ -265,6 +324,7 @@
       data-intro-transition
       aria-hidden="true"
     ></div>
+
   </div>
 
   <!-- CURSOR -->
@@ -302,6 +362,7 @@
       class="nav__links"
       aria-label="Navegação principal"
     >
+
       <a href="#sobre">
         Sobre
       </a>
@@ -317,6 +378,7 @@
       <a href="#contato">
         Contato
       </a>
+
     </nav>
 
     <a
@@ -354,6 +416,7 @@
       <div class="hero__content">
 
         <div class="hero__top reveal">
+
           <span>
             FRONT-END · UI · SISTEMAS WEB
           </span>
@@ -361,6 +424,7 @@
           <span>
             PORTO VELHO · RO
           </span>
+
         </div>
 
         <div class="hero__headline">
@@ -370,6 +434,7 @@
           </p>
 
           <h1>
+
             <span class="mask">
               <span>
                 Código
@@ -387,6 +452,7 @@
                 Experiências que ficam.
               </span>
             </span>
+
           </h1>
 
         </div>
@@ -426,30 +492,8 @@
       class="tech-marquee"
       aria-label="Tecnologias"
     >
+
       <div class="tech-marquee__track">
-        <span>HTML</span>
-        <i>✦</i>
-
-        <span>CSS</span>
-        <i>✦</i>
-
-        <span>JAVASCRIPT</span>
-        <i>✦</i>
-
-        <span>TYPESCRIPT</span>
-        <i>✦</i>
-
-        <span>REACT</span>
-        <i>✦</i>
-
-        <span>NEXT.JS</span>
-        <i>✦</i>
-
-        <span>UX/UI</span>
-        <i>✦</i>
-
-        <span>SISTEMAS WEB</span>
-        <i>✦</i>
 
         <span>HTML</span>
         <i>✦</i>
@@ -474,7 +518,33 @@
 
         <span>SISTEMAS WEB</span>
         <i>✦</i>
+
+        <span>HTML</span>
+        <i>✦</i>
+
+        <span>CSS</span>
+        <i>✦</i>
+
+        <span>JAVASCRIPT</span>
+        <i>✦</i>
+
+        <span>TYPESCRIPT</span>
+        <i>✦</i>
+
+        <span>REACT</span>
+        <i>✦</i>
+
+        <span>NEXT.JS</span>
+        <i>✦</i>
+
+        <span>UX/UI</span>
+        <i>✦</i>
+
+        <span>SISTEMAS WEB</span>
+        <i>✦</i>
+
       </div>
+
     </div>
 
     <!-- SOBRE -->
@@ -484,6 +554,7 @@
     >
 
       <div class="section__label reveal">
+
         <span>
           01
         </span>
@@ -491,6 +562,7 @@
         <span>
           SOBRE
         </span>
+
       </div>
 
       <div class="about__content">
@@ -521,6 +593,7 @@
             </p>
 
             <div class="about__stack">
+
               <span>
                 Front-end
               </span>
@@ -536,6 +609,7 @@
               <span>
                 Documentação
               </span>
+
             </div>
 
           </div>
@@ -555,6 +629,7 @@
       <div class="projects__intro section">
 
         <div class="section__label reveal">
+
           <span>
             02
           </span>
@@ -562,6 +637,7 @@
           <span>
             PROJETOS
           </span>
+
         </div>
 
         <h2 class="section__title reveal">
@@ -585,6 +661,7 @@
           <div class="case__head">
 
             <div>
+
               <span class="case__index">
                 01 / SETIC
               </span>
@@ -596,6 +673,7 @@
               <p>
                 Sistema de Controle de Planos Estratégicos
               </p>
+
             </div>
 
             <a
@@ -661,6 +739,7 @@
                     <div class="scope-heading">
 
                       <div>
+
                         <small>
                           MONITORAMENTO
                         </small>
@@ -668,6 +747,7 @@
                         <strong>
                           Projetos estratégicos
                         </strong>
+
                       </div>
 
                       <button type="button">
@@ -679,6 +759,7 @@
                     <div class="scope-metrics">
 
                       <div>
+
                         <small>
                           Projetos
                         </small>
@@ -690,9 +771,11 @@
                         <span>
                           +12%
                         </span>
+
                       </div>
 
                       <div>
+
                         <small>
                           Em andamento
                         </small>
@@ -704,9 +787,11 @@
                         <span>
                           58%
                         </span>
+
                       </div>
 
                       <div>
+
                         <small>
                           Concluídos
                         </small>
@@ -718,6 +803,7 @@
                         <span>
                           +4
                         </span>
+
                       </div>
 
                     </div>
@@ -725,6 +811,7 @@
                     <div class="scope-chart">
 
                       <div class="scope-chart__title">
+
                         <span>
                           Evolução dos projetos
                         </span>
@@ -732,15 +819,18 @@
                         <small>
                           Últimos 6 meses
                         </small>
+
                       </div>
 
                       <div class="scope-chart__bars">
+
                         <span style="--bar: 34%"></span>
                         <span style="--bar: 48%"></span>
                         <span style="--bar: 42%"></span>
                         <span style="--bar: 65%"></span>
                         <span style="--bar: 76%"></span>
                         <span style="--bar: 91%"></span>
+
                       </div>
 
                     </div>
@@ -748,29 +838,35 @@
                     <div class="scope-kanban">
 
                       <div>
+
                         <small>
                           PLANEJADO
                         </small>
 
                         <article></article>
                         <article></article>
+
                       </div>
 
                       <div>
+
                         <small>
                           EM ANDAMENTO
                         </small>
 
                         <article></article>
                         <article></article>
+
                       </div>
 
                       <div>
+
                         <small>
                           HOMOLOGAÇÃO
                         </small>
 
                         <article></article>
+
                       </div>
 
                     </div>
@@ -797,6 +893,7 @@
             </p>
 
             <div class="chips">
+
               <span>
                 React
               </span>
@@ -812,6 +909,7 @@
               <span>
                 Gestão
               </span>
+
             </div>
 
           </div>
@@ -831,6 +929,7 @@
           <div class="case__head">
 
             <div>
+
               <span class="case__index">
                 02 / SETIC
               </span>
@@ -842,6 +941,7 @@
               <p>
                 Documentação e conhecimento institucional
               </p>
+
             </div>
 
             <a
@@ -940,6 +1040,7 @@
                     <div class="wiki-cards">
 
                       <article>
+
                         <span>
                           01
                         </span>
@@ -951,9 +1052,11 @@
                         <small>
                           Guias e manuais
                         </small>
+
                       </article>
 
                       <article>
+
                         <span>
                           02
                         </span>
@@ -965,9 +1068,11 @@
                         <small>
                           Fluxos institucionais
                         </small>
+
                       </article>
 
                       <article>
+
                         <span>
                           03
                         </span>
@@ -979,6 +1084,7 @@
                         <small>
                           Informação gerencial
                         </small>
+
                       </article>
 
                     </div>
@@ -1026,6 +1132,7 @@
             </p>
 
             <div class="chips">
+
               <span>
                 Informação
               </span>
@@ -1041,6 +1148,7 @@
               <span>
                 UX
               </span>
+
             </div>
 
           </div>
@@ -1057,6 +1165,7 @@
           <div class="case__head">
 
             <div>
+
               <span class="case__index">
                 03 / SISTEMA INTERNO
               </span>
@@ -1068,6 +1177,7 @@
               <p>
                 Perfis, competências e informação institucional
               </p>
+
             </div>
 
             <a
@@ -1104,6 +1214,7 @@
             </div>
 
             <div class="skills-node skills-node--one">
+
               <strong>
                 FRONT-END
               </strong>
@@ -1111,9 +1222,11 @@
               <span>
                 92%
               </span>
+
             </div>
 
             <div class="skills-node skills-node--two">
+
               <strong>
                 TYPESCRIPT
               </strong>
@@ -1121,9 +1234,11 @@
               <span>
                 88%
               </span>
+
             </div>
 
             <div class="skills-node skills-node--three">
+
               <strong>
                 UI / UX
               </strong>
@@ -1131,9 +1246,11 @@
               <span>
                 84%
               </span>
+
             </div>
 
             <div class="skills-node skills-node--four">
+
               <strong>
                 SISTEMAS
               </strong>
@@ -1141,6 +1258,7 @@
               <span>
                 90%
               </span>
+
             </div>
 
             <div class="skills-ring skills-ring--one"></div>
@@ -1157,6 +1275,7 @@
             </p>
 
             <div class="chips">
+
               <span>
                 Next.js
               </span>
@@ -1168,6 +1287,7 @@
               <span>
                 SQL
               </span>
+
             </div>
 
           </div>
@@ -1185,6 +1305,7 @@
     >
 
       <div class="section__label reveal">
+
         <span>
           03
         </span>
@@ -1192,23 +1313,28 @@
         <span>
           SERVIÇOS
         </span>
+
       </div>
 
       <h2 class="services__title reveal">
+
         <span class="services__title-main">
           Da ideia
         </span>
-      
+
         <em class="services__title-accent">
           ao produto no ar.
         </em>
+
       </h2>
+
       <div class="services__list">
 
         <article
           class="service reveal"
           data-service="01"
         >
+
           <span>
             01
           </span>
@@ -1226,12 +1352,14 @@
           <i>
             ↗
           </i>
+
         </article>
 
         <article
           class="service reveal"
           data-service="02"
         >
+
           <span>
             02
           </span>
@@ -1249,12 +1377,14 @@
           <i>
             ↗
           </i>
+
         </article>
 
         <article
           class="service reveal"
           data-service="03"
         >
+
           <span>
             03
           </span>
@@ -1272,12 +1402,14 @@
           <i>
             ↗
           </i>
+
         </article>
 
         <article
           class="service reveal"
           data-service="04"
         >
+
           <span>
             04
           </span>
@@ -1295,6 +1427,7 @@
           <i>
             ↗
           </i>
+
         </article>
 
       </div>
@@ -1315,6 +1448,7 @@
       <div class="contact__inner">
 
         <div class="section__label reveal">
+
           <span>
             04
           </span>
@@ -1322,9 +1456,11 @@
           <span>
             CONTATO
           </span>
+
         </div>
 
         <h2 class="contact__title reveal">
+
           <span class="contact__title-main">
             TEM ALGO
           </span>
@@ -1332,6 +1468,7 @@
           <span class="contact__title-outline">
             PARA CONSTRUIR?
           </span>
+
         </h2>
 
         <p class="reveal">
