@@ -1,5 +1,9 @@
 import "./styles.scss";
 import "./intro.scss";
+import "./hero.scss";
+import "./projects.scss";
+import "./services.scss";
+import "./contact.scss";
 
 import { initIntro } from "./intro";
 import { initIntroScene } from "./intro-scene";
@@ -9,7 +13,6 @@ import { initUi } from "./ui";
 const start = (): void => {
   initIntroScene();
   initIntro();
-
   initUi();
   initScene();
 };
