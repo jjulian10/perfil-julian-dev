@@ -480,18 +480,27 @@
             claras, úteis e bem construídas.
           </p>
 
-          <a
-            class="hero__explore"
-            href="#projetos"
-          >
-            <span>
-              Explorar projetos
-            </span>
+          <div class="hero__actions">
+            <a
+              class="hero__explore"
+              href="#projetos"
+            >
+              <span>Explorar projetos</span>
+              <span>↓</span>
+            </a>
 
-            <span>
-              ↓
-            </span>
-          </a>
+            <a
+              class="hero__budget"
+              href="https://wa.me/5569992667022?text=Ol%C3%A1%20Julian%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor-text="ORÇAMENTO"
+              data-analytics-event="budget_click"
+              data-analytics-placement="hero"
+            >
+              Solicitar orçamento ↗
+            </a>
+          </div>
 
         </div>
 
@@ -660,12 +669,20 @@
           </em>
         </h2>
 
+        <div class="project-filters reveal" data-project-filters aria-label="Filtrar projetos">
+          <button type="button" class="is-active" data-project-filter="todos">Todos</button>
+          <button type="button" data-project-filter="sistemas">Sistemas</button>
+          <button type="button" data-project-filter="produto">Produtos digitais</button>
+          <button type="button" data-project-filter="institucional">Institucional</button>
+        </div>
+
       </div>
 
       <!-- SCOPE -->
       <article
         class="case case--scope"
         data-case
+        data-project-category="sistemas"
       >
 
         <div class="case__sticky">
@@ -936,6 +953,7 @@
       <article
         class="case case--wiki"
         data-case
+        data-project-category="institucional"
       >
 
         <div class="case__sticky">
@@ -1174,7 +1192,8 @@
       </article>
 
       <!-- QUADRA ABERTA -->
-      <article class="case case--compact case--quadra">
+      <article class="case case--compact case--quadra"
+        data-project-category="produto">
 
         <div class="case__compact-inner">
 
@@ -1260,7 +1279,8 @@
       </article>
 
       <!-- QUADRO DE COMPETÊNCIAS -->
-      <article class="case case--compact">
+      <article class="case case--compact"
+        data-project-category="sistemas">
 
         <div class="case__compact-inner">
 
