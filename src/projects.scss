@@ -1396,3 +1396,84 @@
       transition: none;
     }
   }
+/* =========================================================
+   QUADRA ABERTA — CASE
+   ========================================================= */
+.case--quadra {
+  background:
+    radial-gradient(circle at 82% 42%, rgba(72, 120, 255, 0.12), transparent 28rem),
+    #0a0b0d;
+}
+.quadra-concept {
+  position: relative;
+  min-height: 420px;
+  margin: 55px 0 42px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 18px;
+  background: linear-gradient(135deg,#11231f 0%,#0e1617 52%,#13172a 100%);
+  box-shadow: 0 28px 80px rgba(0,0,0,.4);
+  transform: perspective(1200px) rotateX(2deg);
+}
+.quadra-concept::before {
+  content:"";
+  position:absolute;
+  width:480px;
+  height:480px;
+  right:-170px;
+  top:-250px;
+  border-radius:50%;
+  background: radial-gradient(circle,rgba(165,255,193,.22),transparent 66%);
+  filter:blur(12px);
+}
+.quadra-concept__top {
+  position:relative;
+  z-index:1;
+  height:68px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:0 24px;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.quadra-concept__top strong {
+  color:#f5f7f4;
+  font-size:1rem;
+  letter-spacing:-.04em;
+}
+.quadra-concept__top strong span {font-weight:400;color:#a5ffc1}
+.quadra-concept__top small {margin-left:auto;color:rgba(255,255,255,.42);font-size:.52rem;letter-spacing:.16em}
+.quadra-logo {
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  border-radius:9px;
+  color:#102016;
+  background:#a5ffc1;
+  font-weight:900;
+}
+.quadra-concept__body {position:relative;z-index:1;padding:28px 30px}
+.quadra-concept__hero {display:flex;flex-direction:column;gap:7px}
+.quadra-concept__hero small {color:#a5ffc1;font-size:.52rem;letter-spacing:.16em}
+.quadra-concept__hero strong {color:#f5f7f4;font-size:clamp(1.45rem,3vw,2.7rem);line-height:.98;letter-spacing:-.06em}
+.quadra-concept__hero span {color:rgba(255,255,255,.48);font-size:.72rem}
+.quadra-concept__stats {display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
+.quadra-concept__stats article {padding:13px;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(255,255,255,.035)}
+.quadra-concept__stats small {display:block;color:rgba(255,255,255,.38);font-size:.45rem;letter-spacing:.1em}
+.quadra-concept__stats strong {display:block;color:#f5f7f4;margin:8px 0 3px;font-size:1.35rem}
+.quadra-concept__stats span {color:#a5ffc1;font-size:.5rem}
+.quadra-concept__schedule {display:grid;grid-template-columns:55px 1fr 1fr;gap:7px 10px;margin-top:23px;align-items:center}
+.quadra-concept__schedule span {color:rgba(255,255,255,.4);font-size:.58rem}
+.quadra-concept__schedule i {padding:8px 10px;border-radius:6px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);font-size:.55rem;font-style:normal}
+.quadra-concept__schedule i.is-booked {background:rgba(165,255,193,.14);color:#a5ffc1}
+.quadra-concept__schedule i.is-pending {background:rgba(244,193,95,.14);color:#edc46e}
+@media(max-width:640px) {
+  .quadra-concept {min-height:390px;margin-top:40px}
+  .quadra-concept__top {padding:0 16px}
+  .quadra-concept__top small {display:none}
+  .quadra-concept__body {padding:22px 18px}
+  .quadra-concept__stats strong {font-size:1rem}
+  .quadra-concept__schedule {grid-template-columns:43px 1fr}
+  .quadra-concept__schedule i:nth-of-type(even) {display:none}
+}
