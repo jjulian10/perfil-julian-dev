@@ -451,6 +451,30 @@ const initServiceGlow = (): void => {
   );
 };
 
+const initProjectFilters = (): void => {
+  const filters = document.querySelectorAll<HTMLButtonElement>("[data-project-filter]");
+  const projects = document.querySelectorAll<HTMLElement>("[data-project-category]");
+  if (filters.length === 0 || projects.length === 0) return;
+
+  filters.forEach(filter => {
+    filter.addEventListener("click", () => {
+      const selected = filter.dataset.projectFilter ?? "todos";
+
+      filters.forEach(item =>
+        item.classList.toggle("is-active", item === filter)
+      );
+
+      projects.forEach(project => {
+        const category = project.dataset.projectCategory ?? "";
+        const visible = selected === "todos" || category === selected;
+        project.hidden = !visible;
+      });
+
+      window.dispatchEvent(new Event("resize"));
+    });
+  });
+};
+
 export const initUi =
   (): void => {
     initReveal();
@@ -459,4 +483,5 @@ export const initUi =
     initTilts();
     initCaseMotion();
     initServiceGlow();
+    initProjectFilters();
   };
