@@ -247,7 +247,10 @@ export const initScene =
         vec2 pos =
           p.xy /
           z *
-          2.35;
+          1.7;
+
+        // Ajusta a esfera ao menor lado do canvas, inclusive no celular.
+        pos *= min(uAspect, 1.0);
 
         pos.x /=
           uAspect;
@@ -352,7 +355,7 @@ export const initScene =
         gl_FragColor =
           vec4(
             color,
-            0.94
+            1.0
           );
       }
     `;

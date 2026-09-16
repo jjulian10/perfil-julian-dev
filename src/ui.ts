@@ -12,9 +12,22 @@ const initReveal = (): void => {
   const elements =
     Array.from(
       document.querySelectorAll<HTMLElement>(
-        ".reveal, .mask > span"
+        ".reveal, .mask"
       )
     );
+
+  // Observe a máscara estável, não o texto deslocado e recortado dentro dela.
+  const reveal = (element: HTMLElement): void => {
+    element.classList.add("is-visible");
+    if (element.matches(".mask")) {
+      element.querySelector<HTMLElement>(":scope > span")?.classList.add("is-visible");
+    }
+  };
+
+  if (!("IntersectionObserver" in window)) {
+    elements.forEach(reveal);
+    return;
+  }
 
   const observer =
     new IntersectionObserver(
@@ -27,9 +40,7 @@ const initReveal = (): void => {
               return;
             }
 
-            entry.target.classList.add(
-              "is-visible"
-            );
+            reveal(entry.target as HTMLElement);
 
             observer.unobserve(
               entry.target
