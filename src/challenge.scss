@@ -267,6 +267,7 @@
     justify-self: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
     gap: 9px;
     width: min(100%, 430px);
     aspect-ratio: 1;
@@ -279,6 +280,7 @@
     display: grid;
     place-items: center;
     min-width: 0;
+    min-height: 0;
     border: 1px solid var(--line);
     border-radius: 18px;
     color: var(--text);

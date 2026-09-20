@@ -104,6 +104,23 @@ const getBestMoves = (board: Cell[]): number[] => {
   return choices;
 };
 
+const findImmediateMove = (
+  board: Cell[],
+  mark: Mark
+): number | undefined => {
+  for (const index of getEmptyCells(board)) {
+    board[index] = mark;
+    const outcome = getOutcome(board);
+    board[index] = "";
+
+    if (outcome?.winner === mark) {
+      return index;
+    }
+  }
+
+  return undefined;
+};
+
 const randomItem = <T>(items: T[]): T | undefined =>
   items[Math.floor(Math.random() * items.length)];
 
@@ -208,12 +225,20 @@ export const initChallenge = (): void => {
 
   const chooseAiMove = (): number | undefined => {
     const available = getEmptyCells(board);
+    const winningMove = findImmediateMove(board, AI);
+
+    if (winningMove !== undefined) {
+      return winningMove;
+    }
+
+    const blockingMove = findImmediateMove(board, HUMAN);
+
+    if (blockingMove !== undefined) {
+      return blockingMove;
+    }
+
     const optimalMoves = getBestMoves(board);
-    const optimalChance = attemptsLeft === 3
-      ? 0.74
-      : attemptsLeft === 2
-        ? 0.56
-        : 0.36;
+    const optimalChance = 0.72;
 
     if (Math.random() < optimalChance) {
       return randomItem(optimalMoves);
