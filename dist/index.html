@@ -61,12 +61,22 @@
 
   <meta
     property="og:url"
-    content="https://julian-matheus-dev.netlify.app/"
+    content="https://perfil-julian-dev.vercel.app/"
+  />
+
+  <meta
+    property="og:image"
+    content="https://perfil-julian-dev.vercel.app/og-image.png"
+  />
+
+  <meta
+    property="og:image:alt"
+    content="Portfólio de Julian Matheus"
   />
 
   <link
     rel="canonical"
-    href="https://julian-matheus-dev.netlify.app/"
+    href="https://perfil-julian-dev.vercel.app/"
   />
 
   <title>
@@ -74,8 +84,8 @@
   </title>
 
 
-  <script type="module" crossorigin src="/assets/index-Dth_8ULt.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CA14rHld.css">
+  <script type="module" crossorigin src="/assets/index-DdE-8t2v.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DOThKlow.css">
 </head>
 
 <body>
@@ -375,6 +385,10 @@
         Serviços
       </a>
 
+      <a href="#desafio">
+        Desafio
+      </a>
+
       <a href="#contato">
         Contato
       </a>
@@ -468,18 +482,37 @@
             claras, úteis e bem construídas.
           </p>
 
-          <a
-            class="hero__explore"
-            href="#projetos"
-          >
-            <span>
-              Explorar projetos
-            </span>
+          <div class="hero__actions">
+            <a
+              class="hero__explore"
+              href="#projetos"
+            >
+              <span>Explorar projetos</span>
+              <span>↓</span>
+            </a>
 
-            <span>
-              ↓
-            </span>
-          </a>
+            <a
+              class="hero__challenge-link"
+              href="#desafio"
+              data-cursor-text="JOGAR"
+              data-analytics-event="challenge_cta_click"
+              data-analytics-placement="hero"
+            >
+              Desafiar a Sexta-Feira ↘
+            </a>
+
+            <a
+              class="hero__budget"
+              href="https://wa.me/5569992667022?text=Ol%C3%A1%20Julian%2C%20vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor-text="ORÇAMENTO"
+              data-analytics-event="budget_click"
+              data-analytics-placement="hero"
+            >
+              Solicitar orçamento ↗
+            </a>
+          </div>
 
         </div>
 
@@ -648,12 +681,20 @@
           </em>
         </h2>
 
+        <div class="project-filters reveal" data-project-filters aria-label="Filtrar projetos">
+          <button type="button" class="is-active" data-project-filter="todos">Todos</button>
+          <button type="button" data-project-filter="sistemas">Sistemas</button>
+          <button type="button" data-project-filter="produto">Produtos digitais</button>
+          <button type="button" data-project-filter="institucional">Institucional</button>
+        </div>
+
       </div>
 
       <!-- SCOPE -->
       <article
         class="case case--scope"
         data-case
+        data-project-category="sistemas"
       >
 
         <div class="case__sticky">
@@ -677,7 +718,7 @@
             </div>
 
             <a
-              href="https://ubiquitous-bonbon-dd4b79.netlify.app/"
+              href="https://escopo-monitoramento-prototipo.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               data-cursor-text="ABRIR"
@@ -924,6 +965,7 @@
       <article
         class="case case--wiki"
         data-case
+        data-project-category="institucional"
       >
 
         <div class="case__sticky">
@@ -1161,8 +1203,96 @@
 
       </article>
 
+      <!-- QUADRA ABERTA -->
+      <article class="case case--compact case--quadra"
+        data-project-category="produto">
+
+        <div class="case__compact-inner">
+
+          <div class="case__head">
+
+            <div>
+              <span class="case__index">03 / PRODUTO DIGITAL</span>
+              <h3>Quadra Aberta</h3>
+              <p>Reservas de quadras esportivas pelo celular</p>
+            </div>
+
+            <a
+              href="https://quadra-aberta-julian.julian1020201.chatgpt.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor-text="ABRIR"
+              data-analytics-event="quadra_aberta_click"
+              data-analytics-placement="projetos"
+            >
+              Ver demonstração ↗
+            </a>
+
+            <a
+              href="https://vercel.com/julian-50a5/quadra-aberta/7DEw3wkjYxtvmiD9eTMQdB5yjmJN"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor-text="VERCEL"
+              data-analytics-event="quadra_aberta_vercel_click"
+              data-analytics-placement="projetos"
+            >
+              Ver na Vercel ↗
+            </a>
+
+          </div>
+
+          <div class="quadra-concept" aria-label="Prévia visual do sistema Quadra Aberta">
+
+            <div class="quadra-concept__top">
+              <span class="quadra-logo">Q</span>
+              <strong>quadra<span>aberta</span></strong>
+              <small>AGENDA DA ARENA</small>
+            </div>
+
+            <div class="quadra-concept__body">
+              <div class="quadra-concept__hero">
+                <small>CONTROLE DA ARENA</small>
+                <strong>Bom jogo começa<br>com uma boa agenda.</strong>
+                <span>Todos os horários. Cada reserva. Tudo no seu lugar.</span>
+              </div>
+
+              <div class="quadra-concept__stats">
+                <article><small>RESERVAS DO DIA</small><strong>07</strong><span>Confirmadas</span></article>
+                <article><small>OCUPAÇÃO</small><strong>26%</strong><span>Horários usados</span></article>
+                <article><small>RECEBIDO</small><strong>R$ 490</strong><span>Pagamentos</span></article>
+              </div>
+
+              <div class="quadra-concept__schedule">
+                <span>14:00</span><i>Disponível</i><i class="is-booked">Marina Costa · Confirmada</i>
+                <span>15:00</span><i class="is-booked">Bruno Almeida · Confirmada</i><i>Disponível</i>
+                <span>16:00</span><i>Disponível</i><i class="is-pending">A confirmar</i>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="case__footer">
+            <p>
+              Protótipo de uma plataforma para o jogador encontrar horários,
+              reservar sua quadra e receber a confirmação, enquanto a arena
+              acompanha agenda e faturamento.
+            </p>
+
+            <div class="chips">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>WhatsApp</span>
+            </div>
+          </div>
+
+        </div>
+
+      </article>
+
       <!-- QUADRO DE COMPETÊNCIAS -->
-      <article class="case case--compact">
+      <article class="case case--compact"
+        data-project-category="sistemas">
 
         <div class="case__compact-inner">
 
@@ -1171,7 +1301,7 @@
             <div>
 
               <span class="case__index">
-                03 / SISTEMA INTERNO
+                04 / SISTEMA INTERNO
               </span>
 
               <h3>
@@ -1440,6 +1570,158 @@
 
     </section>
 
+    <!-- DESAFIO DA SEXTA-FEIRA -->
+    <section
+      class="challenge section"
+      id="desafio"
+      data-challenge
+    >
+
+      <div class="section__label reveal">
+        <span>04</span>
+        <span>DESAFIO INTERATIVO</span>
+      </div>
+
+      <div class="challenge__heading">
+        <div>
+          <span class="challenge__kicker reveal">
+            UMA EXPERIÊNCIA FORA DO COMUM
+          </span>
+
+          <h2 class="challenge__title reveal">
+            Vença a
+            <em>Sexta-Feira.</em>
+          </h2>
+
+          <p class="challenge__intro reveal">
+            Você tem três tentativas para vencer minha assistente
+            no jogo da velha e desbloquear uma consultoria inicial gratuita.
+          </p>
+        </div>
+
+        <aside class="challenge__offer reveal">
+          <span>RECOMPENSA</span>
+          <strong>Consultoria inicial gratuita</strong>
+          <small>
+            Uma conversa estratégica para analisar sua ideia,
+            produto ou presença digital.
+          </small>
+        </aside>
+      </div>
+
+      <div class="challenge__arena reveal">
+        <div class="challenge__assistant">
+          <span class="challenge__online">ASSISTENTE ONLINE</span>
+
+          <div class="challenge__orb" aria-hidden="true">
+            <i></i>
+            <strong>SF</strong>
+          </div>
+
+          <h3>
+            Olá, sou a
+            <span>Sexta-Feira.</span>
+          </h3>
+
+          <p
+            class="challenge__speech"
+            data-challenge-speech
+            aria-live="polite"
+          >
+            Você começa. Escolha uma casa — prometo não subestimar sua estratégia.
+          </p>
+
+          <div class="challenge__attempts">
+            <span>Tentativas restantes</span>
+            <div data-challenge-attempts aria-label="Três tentativas restantes">
+              <i></i><i></i><i></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="challenge__game">
+          <div class="challenge__game-head">
+            <div class="challenge__turn">
+              <strong data-challenge-turn-mark>X</strong>
+              <span data-challenge-turn>Sua vez</span>
+            </div>
+
+            <button
+              type="button"
+              data-challenge-reset
+            >
+              Reiniciar partida
+            </button>
+          </div>
+
+          <div
+            class="challenge__board"
+            data-challenge-board
+            role="grid"
+            aria-label="Tabuleiro do jogo da velha"
+          ></div>
+
+          <div class="challenge__legend">
+            <span><b>X</b> Você</span>
+            <span><b>O</b> Sexta-Feira</span>
+          </div>
+        </div>
+
+        <div
+          class="challenge__reward"
+          data-challenge-reward
+          aria-hidden="true"
+        >
+          <div class="challenge__reward-card">
+            <div class="challenge__reward-icon">✓</div>
+            <span>DESAFIO CONCLUÍDO</span>
+            <h3>Você me venceu.</h3>
+            <p>
+              Justo é justo. Você desbloqueou uma consultoria
+              inicial gratuita com Julian.
+            </p>
+
+            <div class="challenge__code">
+              <strong data-challenge-code>GANHEI-DA-SEXTA</strong>
+              <button type="button" data-challenge-copy>COPIAR</button>
+            </div>
+
+            <a
+              class="challenge__claim"
+              data-challenge-claim
+              data-analytics-event="challenge_reward_click"
+              data-analytics-placement="desafio"
+              href="https://wa.me/5569992667022"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Solicitar minha consultoria ↗
+            </a>
+
+            <small>
+              O WhatsApp será aberto com o código da vitória preenchido.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge__rules">
+        <article>
+          <strong>01 · Três tentativas</strong>
+          <span>Até três partidas para conquistar a vitória.</span>
+        </article>
+        <article>
+          <strong>02 · Dificuldade adaptativa</strong>
+          <span>A Sexta-Feira fica menos implacável a cada rodada.</span>
+        </article>
+        <article>
+          <strong>03 · Prêmio desbloqueado</strong>
+          <span>A vitória libera o contato direto com o código.</span>
+        </article>
+      </div>
+
+    </section>
+
     <!-- CONTATO -->
     <section
       class="contact"
@@ -1456,7 +1738,7 @@
         <div class="section__label reveal">
 
           <span>
-            04
+            05
           </span>
 
           <span>

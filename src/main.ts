@@ -3,6 +3,7 @@ import "./intro.scss";
 import "./hero.scss";
 import "./projects.scss";
 import "./services.scss";
+import "./challenge.scss";
 import "./contact.scss";
 
 import { initIntro } from "./intro";
@@ -12,6 +13,7 @@ import { initUi } from "./ui";
 import {
   initAnalyticsEvents
 } from "./analytics";
+import { initChallenge } from "./challenge";
 
 
 const start = (): void => {
@@ -21,6 +23,7 @@ const start = (): void => {
   initIntro();
   initUi();
   initScene();
+  initChallenge();
 };
 
 if (document.readyState === "loading") {
